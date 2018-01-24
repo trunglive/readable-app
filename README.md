@@ -7,7 +7,7 @@ To get started developing right away:
 
 * Install and start the project
     - `yarn install`
-    - 'yarn run dev-server'
+    - `yarn run dev-server`
 
 * Install and start the API server
     - `cd api-server`

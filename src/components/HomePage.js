@@ -1,5 +1,5 @@
 import React from 'react';
 
-const HomePage = () => <div>This is the homepage</div>;
+const HomePage = () => <div>This is the testing for homepage</div>;
 
 export default HomePage;

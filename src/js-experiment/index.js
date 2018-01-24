@@ -1,8 +1,14 @@
+var foo = 'bar';
 
-import * as API from '../utils/api';
+function bar() {
+  var foo = 'baz';
 
-// API.getAllCategories().then(data => console.log(data));
-// API.getAllPosts().then(data => console.log(data));
+  function baz(foo) {
+    foo = 'bam';
+    //  bam = 'yay';
+  }
+  baz();
+}
 
-
-
+bar();
+console.log(foo);

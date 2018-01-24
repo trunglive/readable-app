@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { specialLink } from 'react-router-dom';
 
 const NotFoundPage = () => (
-  <div>Not Found 404 - <Link to="/">Go back to Homepage</Link></div>
+  <div>Not Found 404 - <specialLink to="/">Go back to Homepage</specialLink></div>
 );
 
 export default NotFoundPage;

@@ -7,7 +7,8 @@ export const loadAllCategories = categories => ({
   categories
 });
 
-export const fetchAllCategories = () => dispatch =>
+export const fetchAllCategories = () => dispatch => (
   api
     .getAllCategories()
-    .then(categories => dispatch(loadAllCategories(categories)));
+    .then(categories => dispatch(loadAllCategories(categories)))
+);

@@ -1,22 +1,23 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import categoriesReducer from '../reducers/categories';
-import commentsReducer from '../reducers/comments';
-import postsReducer from '../reducers/posts';
-import sortingReducer from '../reducers/sorting';
+
+import categories from '../reducers/categories';
+import comments from '../reducers/comments';
+import posts from '../reducers/posts';
+import sorting from '../reducers/sorting';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const configureStore = () => {
   const store = createStore(
     combineReducers({
-      categories: categoriesReducer,
-      comments: commentsReducer,
-      posts: postsReducer,
-      sorting: sortingReducer
+      categories,
+      comments,
+      posts,
+      sorting
     }),
-    composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(logger, thunk))
   );
   return store;
 };

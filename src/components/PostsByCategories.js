@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPostsByCategories } from '../actions/posts';
+import SinglePostPage from './SinglePostPage';
 
+import { fetchPostsByCategories } from '../actions/posts';
 
 class PostsByCategories extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchPostsByCategories(this.props.match.params.category));
+    this.props.fetchPostsByCategories(this.props.match.params.category);
   }
 
   render() {
-  
+    const { posts } = this.props;
+    // console.log(posts)
     return (
-      <div>Posts by Categories</div>
-    )
-    
+      <div>
+        <ul>
+          {posts.length > 0 &&
+            posts.map(post => <SinglePostPage key={post.id} {...post} />)}
+        </ul>
+      </div>
+    );
   }
 }
 
-export default connect()(PostsByCategories);
+const mapStateToProps = ({ posts }) => ({
+  posts
+});
+
+export default connect(mapStateToProps, { fetchPostsByCategories })(
+  PostsByCategories
+);

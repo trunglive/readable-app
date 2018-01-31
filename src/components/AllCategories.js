@@ -10,7 +10,6 @@ class AllCategories extends Component {
 
   render() {
     const { categories } = this.props;
-    // console.log(categories);
 
     return (
       <div>

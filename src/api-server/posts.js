@@ -9,7 +9,7 @@ const defaultData = {
     title: 'Udacity is the best place to learn React',
     body: 'Everyone says so after all.',
     author: 'thingtwo',
-    category: 'react',
+    category: 'udacity',
     voteScore: 6,
     deleted: false,
     commentCount: 2
@@ -22,6 +22,17 @@ const defaultData = {
     author: 'thingone',
     category: 'redux',
     voteScore: -5,
+    deleted: false,
+    commentCount: 0
+  },
+  "9c85dea2cde87682c179": {
+    id: '9c85dea2cde87682c179',
+    timestamp: 1492380534238,
+    title: 'Udacity Nanodegree',
+    body: 'Learn the skills you need to get the jobs you want',
+    author: 'thingthree',
+    category: 'udacity',
+    voteScore: 3,
     deleted: false,
     commentCount: 0
   }

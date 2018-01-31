@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
 
 import AllCategories from './AllCategories';
+import AllPosts from './AllPosts';
 
-class HomePage extends Component {
-
-  render() {
+const HomePage = (props) => {
+  
+  console.log(props);
     return (
       <div>
-        HomePage
+        
         <AllCategories />
-        Posts
+        <AllPosts />
       </div>
     )
-  }
 }
 
 export default HomePage;

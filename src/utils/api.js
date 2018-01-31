@@ -21,7 +21,7 @@ export const getAllCategories = () =>
     .then(data => data.categories);
 
 // Posts
-export const getPostsByCategories = () =>
+export const getPostsByCategories = (category) =>
   fetch(`${api}/${category}/posts`, { headers }).then(response =>
     response.json()
   );

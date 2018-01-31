@@ -13,9 +13,9 @@ export const getPostsByCategories = posts => ({
   posts
 });
 
-export const fetchPostsByCategories = () => dispatch => (
+export const fetchPostsByCategories = category => dispatch => (
   api
-    .getPostsByCategories()
+    .getPostsByCategories(category)
     .then(posts => dispatch(getPostsByCategories(posts)))
 );
 

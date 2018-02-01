@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SinglePostPage from './SinglePostPage';
 
@@ -11,7 +12,7 @@ class PostsByCategories extends Component {
 
   render() {
     const { posts } = this.props;
-    // console.log(posts)
+
     return (
       <div>
         <ul>

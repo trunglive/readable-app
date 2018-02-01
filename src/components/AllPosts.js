@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 import SinglePostPage from './SinglePostPage';
 
@@ -11,11 +12,15 @@ class AllPosts extends Component {
 
   render() {
     const { posts } = this.props;
+    console.log(posts);
 
     return (
       <div>
-        {posts.length > 0 &&
-          posts.map(post => <SinglePostPage key={post.id} {...post} />)}
+        <p>All Posts:</p>
+        <ul>
+          {posts.length > 0 &&
+            posts.map(post => <SinglePostPage key={post.id} {...post} />)}
+        </ul>
       </div>
     );
   }

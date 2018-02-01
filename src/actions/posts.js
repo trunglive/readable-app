@@ -55,9 +55,9 @@ export const fetchVotePost = (postId, option) => dispatch => (
   api.votePost(postId, option).then(post => dispatch(votePost(post)))
 );
 
-export const editPost = updates => ({
+export const editPost = post => ({
   type: EDIT_POST,
-  updates
+  post
 });
 
 export const fetchEditPost = (postId, post) => dispatch => (

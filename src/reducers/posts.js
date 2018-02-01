@@ -27,7 +27,7 @@ const postsReducer = (state = initialPostsState, action) => {
         if (post.id === action.id) {
           return {
             ...post,
-            ...action.updates
+            ...action.post
           };
         } else {
           return state;

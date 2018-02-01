@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import SinglePostPage from './SinglePostPage';
 import { fetchAllPosts } from '../actions/posts';
 

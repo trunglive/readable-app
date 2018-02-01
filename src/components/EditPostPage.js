@@ -4,7 +4,6 @@ import CreatePostPage from './CreatePostPage';
 import { fetchEditPost } from '../actions/posts';
 
 const EditPostPage = props => {
-
   return (
     <div>
       Edit Post Page

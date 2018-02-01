@@ -4,7 +4,6 @@ import { fetchAddPost } from '../actions/posts';
 import uuid from 'uuid';
 
 class CreatePostPage extends Component {
-
   constructor(props) {
     super(props);
 
@@ -56,7 +55,6 @@ class CreatePostPage extends Component {
       });
       this.props.history.push('/');
     }
-    
   };
 
   render() {

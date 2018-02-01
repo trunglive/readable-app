@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import SinglePostPage from './SinglePostPage';
-
 import { fetchAllPosts } from '../actions/posts';
 
 class AllPosts extends Component {
@@ -12,7 +10,6 @@ class AllPosts extends Component {
 
   render() {
     const { posts } = this.props;
-    console.log(posts);
 
     return (
       <div>

@@ -66,5 +66,5 @@ export const deleteComment = commentId => ({
 export const fetchDeleteComment = commentId => dispatch => (
   api
     .deleteComment(commentId)
-    .then(comment => dispatch(deleteComment(commentId)))
+    .then(() => dispatch(deleteComment(commentId)))
 );

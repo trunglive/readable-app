@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SinglePostPage from './SinglePostPage';
-import { fetchAllComments } from '../actions/comments';
-import { fetchPost } from '../actions/posts';
+import SinglePostContent from './SinglePostContent';
+import { fetchAllComments } from '../actions/commentsActions';
+import { fetchPost } from '../actions/postsActions';
 
 import SingleCommentPage from './SingleCommentPage';
 
@@ -17,7 +17,7 @@ class SinglePostDetailPage extends Component {
 
     return (
       <div>
-        <SinglePostPage {...post[0]} />
+        <SinglePostContent {...post} />
 
         {comments.length > 0 &&
           comments.map(comment => (
@@ -30,7 +30,6 @@ class SinglePostDetailPage extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    // post: state.posts.find(post => post.id === props.match.params.id),
     post: state.posts,
     comments: state.comments
   };

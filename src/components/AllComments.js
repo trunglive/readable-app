@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SinglePostPage from './SinglePostPage';
-import { fetchPostsByCategories } from '../actions/posts';
+import { fetchPostsByCategories } from '../actions/postsActions';
 
 class PostsByCategories extends Component {
   componentDidMount() {

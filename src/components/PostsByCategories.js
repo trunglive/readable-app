@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SinglePostPage from './SinglePostPage';
-import { fetchPostsByCategories } from '../actions/posts';
+import SinglePostContent from './SinglePostContent';
+import { fetchPostsByCategories } from '../actions/postsActions';
 
 class PostsByCategories extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class PostsByCategories extends Component {
       <div>
         <ul>
           {posts.length > 0 &&
-            posts.map(post => <SinglePostPage key={post.id} {...post} />)}
+            posts.map(post => <SinglePostContent key={post.id} {...post} />)}
         </ul>
       </div>
     );

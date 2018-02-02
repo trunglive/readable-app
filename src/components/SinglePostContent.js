@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
-import { fetchDeletePost } from '../actions/posts';
+import { fetchDeletePost } from '../actions/postsActions';
 
-const SinglePostPage = ({
+const SinglePostContent = ({
   dispatch,
   id,
   title,
@@ -33,4 +33,4 @@ const SinglePostPage = ({
   </div>
 );
 
-export default connect()(SinglePostPage);
+export default connect()(SinglePostContent);

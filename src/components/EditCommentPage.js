@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CreateCommentPage from './CreateCommentPage';
+import CommentForm from './CommentForm';
 
-import { fetchEditComment } from '../actions/comments';
+import { fetchComment, fetchEditComment } from '../actions/commentsActions';
 
-const EditCommentPage = props => {
- 
-  return (
-    <div>
-      Edit Comment Page
-      <CreateCommentPage
-        commentInfo={props.comment}
-        onSubmit={comment => {
-          props.dispatch(fetchEditComment(props.comment.id, comment));
-          props.history.push('/');
-        }}
-      />
-    </div>
-  );
-};
+class EditCommentPage extends Component {
+  componentDidMount() {
+    this.props.fetchComment(this.props.match.params.id);
+  }
+
+  render() {
+    const { comment } = this.props;
+    return (
+      <div>
+        Edit Comment Page
+        <CommentForm
+          commentInfo={comment}
+          onSubmit={content => {
+            this.props.fetchEditComment(content.parentId, content);
+            this.props.history.push('/');
+          }}
+        />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state, props) => {
   return {
-    comment: state.comments.find(comment => comment.id === props.match.params.id)
+    comment: state.comments
   };
 };
 
-export default connect(mapStateToProps)(EditCommentPage);
+export default connect(mapStateToProps, { fetchComment, fetchEditComment })(
+  EditCommentPage
+);

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchAllCategories } from '../actions/categories';
+import SingleCategoryPage from './SingleCategoryPage';
+
+import { fetchAllCategories } from '../actions/categoriesActions';
 
 class AllCategories extends Component {
   componentDidMount() {
@@ -16,9 +19,7 @@ class AllCategories extends Component {
         <ul>
           {categories.length > 0 &&
             categories.map(category => (
-              <li key={category.path}>
-                <a href={category.path}>{category.name}</a>
-              </li>
+              <SingleCategoryPage key={category.name} {...category} />
             ))}
         </ul>
       </div>

@@ -3,7 +3,7 @@ import {
   SORT_BY_OLDEST_DATE,
   SORT_BY_HIGHEST_VOTE_SCORE,
   SORT_BY_LOWEST_VOTE_SCORE
-} from '../actions/sorting';
+} from '../actions/sortingActions';
 
 const initialSortingState = {
   sortBy: 'Vote score (highest)'

@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CreatePostPage from './CreatePostPage';
-import { fetchEditPost } from '../actions/posts';
+import PostForm from './PostForm';
 
-const EditPostPage = props => {
-  return (
-    <div>
-      Edit Post Page
-      <CreatePostPage
-        postInfo={props.post}
-        onSubmit={post => {
-          props.dispatch(fetchEditPost(props.post.id, post));
-          props.history.push('/');
-        }}
-      />
-    </div>
-  );
-};
+import { fetchPost, fetchEditPost } from '../actions/postsActions';
+
+class EditPostPage extends Component {
+  componentDidMount() {
+    this.props.fetchPost(this.props.match.params.id);
+  }
+
+  render() {
+    const { post } = this.props;
+    return (
+      <div>
+        Edit Post Page
+        <PostForm
+          postInfo={post}
+          onSubmit={content => {
+            this.props.fetchEditPost(content.id, content);
+            this.props.history.push('/');
+          }}
+        />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state, props) => {
   return {
-    post: state.posts.find(post => post.id === props.match.params.id)
+    post: state.posts
   };
 };
 
-export default connect(mapStateToProps)(EditPostPage);
+export default connect(mapStateToProps, { fetchPost, fetchEditPost })(EditPostPage);

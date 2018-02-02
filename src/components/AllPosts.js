@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import SinglePostPage from './SinglePostPage';
-import { fetchAllPosts } from '../actions/posts';
+import SinglePostContent from './SinglePostContent';
+import { fetchAllPosts } from '../actions/postsActions';
 
 class AllPosts extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class AllPosts extends Component {
         <p>All Posts:</p>
         <ul>
           {posts.length > 0 &&
-            posts.map(post => <SinglePostPage key={post.id} {...post} />)}
+            posts.map(post => <SinglePostContent key={post.id} {...post} />)}
         </ul>
       </div>
     );

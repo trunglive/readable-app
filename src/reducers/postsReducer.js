@@ -6,33 +6,24 @@ import {
   VOTE_POST,
   EDIT_POST,
   DELETE_POST
-} from '../actions/posts';
+} from '../actions/postsActions';
 
 const initialPostsState = [];
 
 const postsReducer = (state = initialPostsState, action) => {
   switch (action.type) {
     case GET_POSTS_BY_CATEGORIES:
-      return [...state, ...action.posts];
+      return action.posts;
     case GET_ALL_POSTS:
-      return [...state, ...action.posts];
+      return action.posts;
     case ADD_POST:
-      return [...state, ...action.post];
+      return action.post;
     case GET_POST:
-      return [...state, action.post];
+      return action.post;
     case VOTE_POST:
       return [...state, ...action.post];
     case EDIT_POST:
-      return state.map(post => {
-        if (post.id === action.id) {
-          return {
-            ...post,
-            ...action.post
-          };
-        } else {
-          return state;
-        }
-      });
+      return { ...state, ...action.post };
     case DELETE_POST:
       return state.filter(post => post.id !== action.postId);
     default:

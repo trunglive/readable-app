@@ -7,18 +7,23 @@ import EditPostPage from '../components/EditPostPage';
 import EditCommentPage from '../components/EditCommentPage';
 import SinglePostDetailPage from '../components/SinglePostDetailPage';
 import NotFoundPage from '../components/NotFoundPage';
+import AllCategories from '../components/AllCategories';
+import Navigation from '../components/Navigation';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/createpost" component={CreatePostPage} />
-      <Route path="/editpost/:id" component={EditPostPage} />
-      <Route path="/editcomment/:id" component={EditCommentPage} />
-      <Route exact path="/:category" component={PostsByCategories} />
-      <Route path="/:category/:id" component={SinglePostDetailPage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <div>
+      <Navigation />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/createpost" component={CreatePostPage} />
+        <Route exact path="/editpost/:id" component={EditPostPage} />
+        <Route exact path="/editcomment/:id" component={EditCommentPage} />
+        <Route exact path="/:category" component={PostsByCategories} />
+        <Route exact path="/:category/:id" component={SinglePostDetailPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
   </BrowserRouter>
 );
 

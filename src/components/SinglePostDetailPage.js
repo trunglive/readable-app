@@ -17,8 +17,8 @@ class SinglePostDetailPage extends Component {
 
     return (
       <div>
-        <SinglePostContent {...post} />
-
+        {post.length > 0 && <SinglePostContent {...post[0]} />}
+        
         {comments.length > 0 &&
           comments.map(comment => (
             <SingleCommentPage key={comment.id} {...comment} />
@@ -28,7 +28,7 @@ class SinglePostDetailPage extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
   return {
     post: state.posts,
     comments: state.comments

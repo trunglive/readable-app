@@ -5,7 +5,6 @@ import AllPosts from './AllPosts';
 
 const HomePage = () => (
   <div>
-    <AllCategories />
     <Link to="/createpost">Create Post</Link>
     <AllPosts />
   </div>

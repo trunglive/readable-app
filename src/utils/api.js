@@ -59,7 +59,7 @@ export const deletePost = postId =>
   fetch(`${api}/posts/${postId}`, {
     method: 'DELETE',
     headers
-  }).then(response => response.json());
+  });
 
 // Comments
 export const getAllComments = postId =>

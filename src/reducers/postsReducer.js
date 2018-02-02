@@ -17,9 +17,9 @@ const postsReducer = (state = initialPostsState, action) => {
     case GET_ALL_POSTS:
       return action.posts;
     case ADD_POST:
-      return action.post;
+      return [...state, action.post];
     case GET_POST:
-      return action.post;
+      return [action.post];
     case VOTE_POST:
       return [...state, ...action.post];
     case EDIT_POST:

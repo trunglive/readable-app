@@ -47,9 +47,9 @@ export const fetchVoteComment = (commentId, option) => dispatch => (
     .then(comment => dispatch(voteComment(comment)))
 );
 
-export const editComment = updates => ({
+export const editComment = comment => ({
   type: EDIT_COMMENT,
-  updates
+  comment
 });
 
 export const fetchEditComment = (commentId, comment) => dispatch => (

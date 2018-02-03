@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  Message,
+  Button,
+  Form,
+  Input,
+  Container,
+  Grid
+} from 'semantic-ui-react';
 import uuid from 'uuid';
 
 class PostForm extends Component {
@@ -12,6 +20,8 @@ class PostForm extends Component {
       title: props.postInfo ? props.postInfo.title : '',
       author: props.postInfo ? props.postInfo.author : '',
       body: props.postInfo ? props.postInfo.body : '',
+      voteScore: props.postInfo ? props.postInfo.voteScore : 0,
+      commentCount: props.postInfo ? props.postInfo.commentCount : 0,
       error: ''
     };
   }
@@ -38,7 +48,7 @@ class PostForm extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-    
+
     if (!this.state.title || !this.state.author || !this.state.body) {
       this.setState(() => ({ error: 'Please fill out all the forms' }));
     } else {
@@ -49,47 +59,72 @@ class PostForm extends Component {
         body: this.state.body,
         author: this.state.author,
         category: this.state.category,
-        voteScore: 1,
+        voteScore: this.state.voteScore,
         deleted: false,
-        commentCount: 0
+        commentCount: this.state.commentCount
       });
     }
   };
 
   render() {
- 
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onFormSubmit}>
-          <select value={this.state.category} onChange={this.onCategoryChange}>
-            <option value="react">React</option>
-            <option value="redux">Redux</option>
-            <option value="udacity">Udacity</option>
-          </select>
-          <input
-            type="text"
-            placeholder="title"
-            value={this.state.title}
-            onChange={this.onTitleChange}
-          />
-          <input
-            type="text"
-            placeholder="author"
-            value={this.state.author}
-            onChange={this.onAuthorChange}
-          />
-          <textarea
-            type="text"
-            placeholder="body"
-            value={this.state.body}
-            onChange={this.onBodyChange}
-          />
-          <button>Submit</button>
-        </form>
+        <Grid columns={2} celled="internally" centered>
+          <Grid.Column>
+            {this.state.error && (
+              <Message warning header="Error" content={this.state.error} />
+            )}
+            <Form onSubmit={this.onFormSubmit}>
+              <Form.Select
+                required
+                label="Category"
+                options={options}
+                placeholder="Category"
+                value={this.state.category}
+                onChange={this.onCategoryChange}
+              />
+              <Form.Field required>
+                <label>Title</label>
+                <Input
+                  type="text"
+                  placeholder="title"
+                  value={this.state.title}
+                  onChange={this.onTitleChange}
+                />
+              </Form.Field>
+
+              <Form.Field required>
+                <label>Author</label>
+                <Input
+                  type="text"
+                  placeholder="author"
+                  value={this.state.author}
+                  onChange={this.onAuthorChange}
+                />
+              </Form.Field>
+
+              <Form.TextArea
+                required
+                label="Content"
+                type="text"
+                placeholder="body"
+                value={this.state.body}
+                onChange={this.onBodyChange}
+              />
+
+              <Form.Button>Submit</Form.Button>
+            </Form>
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }
 }
 
 export default PostForm;
+
+const options = [
+  { text: 'React', value: 'react' },
+  { text: 'Redux', value: 'redux' },
+  { text: 'Udacity', value: 'udacity' }
+];

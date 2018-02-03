@@ -35,6 +35,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "sass-loader": "6.0.6",
+    "semantic-ui-css": "^2.2.14",
+    "semantic-ui-react": "^0.77.2",
     "style-loader": "0.19.1",
     "uuid": "^3.2.1",
     "validator": "9.2.0",

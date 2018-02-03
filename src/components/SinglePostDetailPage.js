@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SinglePostContent from './SinglePostContent';
+import { Grid, Form, Button, Container } from 'semantic-ui-react';
 import { fetchAllComments } from '../actions/commentsActions';
 import { fetchPost } from '../actions/postsActions';
-
-import SingleCommentPage from './SingleCommentPage';
+import SinglePostContent from './SinglePostContent';
+import SingleCommentContent from './SingleCommentContent';
+import CreateCommentForm from './CreateCommentForm';
+import Comment from 'semantic-ui-react/dist/commonjs/views/Comment/Comment';
 
 class SinglePostDetailPage extends Component {
   componentDidMount() {
@@ -16,19 +18,24 @@ class SinglePostDetailPage extends Component {
     const { post, comments } = this.props;
 
     return (
-      <div>
-        {post.length > 0 && <SinglePostContent {...post[0]} />}
-        
-        {comments.length > 0 &&
-          comments.map(comment => (
-            <SingleCommentPage key={comment.id} {...comment} />
-          ))}
-      </div>
+      <Container>
+        <Grid>
+          {post.length > 0 && <SinglePostContent {...post[0]} />}
+         
+            {comments.length > 0 &&
+              comments.map(comment => (
+                <SingleCommentContent key={comment.id} {...comment} />
+              ))}
+          
+
+          <CreateCommentForm parentId={this.props.match.params.id} />
+        </Grid>
+      </Container>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     post: state.posts,
     comments: state.comments

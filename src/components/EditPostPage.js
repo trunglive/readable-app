@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PostForm from './PostForm';
-
-import { fetchPost, fetchEditPost } from '../actions/postsActions';
+import { fetchEditPost } from '../actions/postsActions';
 
 class EditPostPage extends Component {
-  componentDidMount() {
-    this.props.fetchPost(this.props.match.params.id);
-  }
-
   render() {
-    const { post } = this.props;
+    const post = this.props.posts.filter(
+      post => post.id === this.props.match.params.id
+    );
+  
     return (
       <div>
-        Edit Post Page
         <PostForm
-          postInfo={post}
+          postInfo={post[0]}
           onSubmit={content => {
             this.props.fetchEditPost(content.id, content);
             this.props.history.push('/');
@@ -26,10 +23,8 @@ class EditPostPage extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    post: state.posts
-  };
-};
+const mapStateToProps = ({ posts }) => ({
+  posts
+});
 
-export default connect(mapStateToProps, { fetchPost, fetchEditPost })(EditPostPage);
+export default connect(mapStateToProps, { fetchEditPost })(EditPostPage);

@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  Message,
+  Button,
+  Form,
+  Input,
+  Container,
+  Grid
+} from 'semantic-ui-react';
 import uuid from 'uuid';
 
 class CommentForm extends Component {
@@ -8,9 +16,12 @@ class CommentForm extends Component {
 
     this.state = {
       id: props.commentInfo ? props.commentInfo.id : uuid(),
-      parentId: props.commentInfo.id,
+      parentId: props.commentInfo
+        ? props.commentInfo.parentId
+        : props.parentPostId,
       author: props.commentInfo ? props.commentInfo.author : '',
       body: props.commentInfo ? props.commentInfo.body : '',
+      voteScore: props.commentInfo ? props.commentInfo.voteScore : 0,
       error: ''
     };
   }
@@ -36,7 +47,7 @@ class CommentForm extends Component {
         timestamp: Date.now(),
         author: this.state.author,
         body: this.state.body,
-        voteScore: 1,
+        voteScore: this.state.voteScore,
         deleted: false,
         parentDeleted: false
       });
@@ -44,27 +55,36 @@ class CommentForm extends Component {
   };
 
   render() {
-    
     return (
-      <div>
-        Comment Page
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onFormSubmit}>
-          <input
-            type="text"
-            placeholder="author"
-            value={this.state.author}
-            onChange={this.onAuthorChange}
-          />
-          <textarea
-            type="text"
-            placeholder="body"
-            value={this.state.body}
-            onChange={this.onBodyChange}
-          />
-          <button>Submit</button>
-        </form>
-      </div>
+      <Grid celled="internally" centered>
+        <Grid.Row>
+          {this.state.error && (
+            <Message warning header="Error" content={this.state.error} />
+          )}
+          <Form onSubmit={this.onFormSubmit}>
+            <Form.Field required>
+              <label>Author</label>
+              <Input
+                type="text"
+                placeholder="author"
+                value={this.state.author}
+                onChange={this.onAuthorChange}
+              />
+            </Form.Field>
+
+            <Form.TextArea
+              required
+              label="Content"
+              type="text"
+              placeholder="body"
+              value={this.state.body}
+              onChange={this.onBodyChange}
+            />
+
+            <Form.Button>Submit</Form.Button>
+          </Form>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

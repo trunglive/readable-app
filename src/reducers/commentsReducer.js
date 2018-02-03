@@ -14,22 +14,13 @@ const commentsReducer = (state = initialCommentsState, action) => {
     case GET_ALL_COMMENTS:
       return action.comments;
     case ADD_COMMENT:
-      return action.comment;
+      return [...state, action.comment];
     case GET_COMMENT:
-      return action.comment;
+      return [action.comment];
     case VOTE_COMMENT:
       return [...state, ...action.comment];
     case EDIT_COMMENT:
-      return state.map(comment => {
-        if (comment.id === action.id) {
-          return {
-            ...post,
-            ...action.updates
-          };
-        } else {
-          return state;
-        }
-      });
+      return [...state, ...action.comment];
     case DELETE_COMMENT:
       return state.filter(comment => comment.id !== action.commentId);
     default:

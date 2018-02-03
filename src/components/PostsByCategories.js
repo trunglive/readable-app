@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid } from 'semantic-ui-react';
 import SinglePostContent from './SinglePostContent';
 import { fetchPostsByCategories } from '../actions/postsActions';
 
@@ -10,14 +11,14 @@ class PostsByCategories extends Component {
 
   render() {
     const { posts } = this.props;
-
+  
     return (
-      <div>
+      <Grid centered>
         <ul>
           {posts.length > 0 &&
             posts.map(post => <SinglePostContent key={post.id} {...post} />)}
         </ul>
-      </div>
+      </Grid>
     );
   }
 }

@@ -1,37 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Container } from 'semantic-ui-react';
 import CommentForm from './CommentForm';
-
-import { fetchComment, fetchEditComment } from '../actions/commentsActions';
+import { fetchEditComment } from '../actions/commentsActions';
 
 class EditCommentPage extends Component {
-  componentDidMount() {
-    this.props.fetchComment(this.props.match.params.id);
-  }
-
   render() {
-    const { comment } = this.props;
+    const comment = this.props.comments.filter(
+      comment => comment.id === this.props.match.params.id
+    );
+
     return (
       <div>
-        Edit Comment Page
-        <CommentForm
-          commentInfo={comment}
-          onSubmit={content => {
-            this.props.fetchEditComment(content.parentId, content);
-            this.props.history.push('/');
-          }}
-        />
+        <Container textAlign="center">
+          Editing Comment
+          <CommentForm
+            commentInfo={comment[0]}
+            onSubmit={content => {
+              this.props.fetchEditComment(content.id, content);
+            }}
+          />
+        </Container>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    comment: state.comments
-  };
-};
+const mapStateToProps = ({ comments }) => ({
+  comments
+});
 
-export default connect(mapStateToProps, { fetchComment, fetchEditComment })(
-  EditCommentPage
-);
+export default connect(mapStateToProps, { fetchEditComment })(EditCommentPage);

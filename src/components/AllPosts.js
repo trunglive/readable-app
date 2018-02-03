@@ -15,7 +15,6 @@ class AllPosts extends Component {
 
     return (
       <div>
-        <p>All Posts:</p>
         <ul>
           {posts.length > 0 &&
             posts.map(post => <SinglePostContent key={post.id} {...post} />)}

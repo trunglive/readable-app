@@ -23,7 +23,7 @@ const postsReducer = (state = initialPostsState, action) => {
     case VOTE_POST:
       return [...state, ...action.post];
     case EDIT_POST:
-      return { ...state, ...action.post };
+      return [...state, ...action.post];
     case DELETE_POST:
       return state.filter(post => post.id !== action.postId);
     default:

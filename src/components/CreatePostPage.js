@@ -5,7 +5,6 @@ import { fetchAddPost } from '../actions/postsActions';
 
 const CreatePostPage = (props) => (
   <div>
-    Add Post Page
     <PostForm
       onSubmit={post => {
         props.dispatch(fetchAddPost(post));

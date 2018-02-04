@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import PostSelectors from '../selectors/PostSelectors';
 import SinglePostContent from './SinglePostContent';
 import { fetchAllPosts } from '../actions/postsActions';
 
@@ -24,8 +24,8 @@ class AllPosts extends Component {
   }
 }
 
-const mapStateToProps = ({ posts }) => ({
-  posts
+const mapStateToProps = (state) => ({
+  posts: PostSelectors(state.posts, state.sorting)
 });
 
 export default connect(mapStateToProps, { fetchAllPosts })(AllPosts);

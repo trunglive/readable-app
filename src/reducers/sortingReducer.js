@@ -6,7 +6,7 @@ import {
 } from '../actions/sortingActions';
 
 const initialSortingState = {
-  sortBy: 'Highest Vote'
+  sortBy: {}
 };
 
 const sortingReducer = (state = initialSortingState, action) => {

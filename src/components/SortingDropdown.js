@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Dropdown, Icon } from 'semantic-ui-react';
+import {
+  sortByHighestVoteScore,
+  sortByLowestVoteScore
+} from '../actions/sortingActions';
+import { fetchAllPosts } from '../actions/postsActions';
 
 const trigger = (
   <span>
@@ -9,20 +15,48 @@ const trigger = (
 
 const options = [
   {
-    key: 'user',
-    text: (
-      <span>
-        Sorting Criteria
-      </span>
-    ),
+    key: 'sort',
+    text: <span>Sorting Criteria</span>,
     disabled: false
   },
-  { key: 'highest', text: 'Highest Vote', value: 'highest' },
-  { key: 'lowest', text: 'Lowest Vote', value: 'lowest' }
+
+  { key: 'highest', text: 'Highest Vote', value: 'highestVote' },
+  { key: 'lowest', text: 'Lowest Vote', value: 'lowestVote' }
 ];
 
-const SortingDropdown = () => (
-  <Dropdown trigger={trigger} options={options} className='sorting-dropdown' />
-);
+class SortingDropdown extends Component {
+  state = { options };
 
-export default SortingDropdown;
+  handleChange = (e, { value }) => {
+    if (value === 'highestVote') {
+      this.props.sortByHighestVoteScore();
+      this.props.fetchAllPosts();
+    } else if (value === 'lowestVote') {
+      this.props.sortByLowestVoteScore();
+      this.props.fetchAllPosts();
+    }
+    this.setState({ currentValue: value });
+  };
+
+  render() {
+    return (
+      <Dropdown
+        trigger={trigger}
+        options={this.state.options}
+        onChange={this.handleChange}
+        value={this.state.currentValue}
+        className="sorting-dropdown"
+      />
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  sorting: state.sorting
+});
+
+export default connect(mapStateToProps, {
+  sortByHighestVoteScore,
+  sortByLowestVoteScore,
+  fetchAllPosts
+})(SortingDropdown);

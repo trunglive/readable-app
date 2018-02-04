@@ -101,3 +101,7 @@ a {
   margin-left: 25px;
   color: #767676;
 }
+
+.post-container.segment {
+  border: 3px;
+}

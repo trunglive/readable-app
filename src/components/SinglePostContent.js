@@ -42,7 +42,7 @@ class SinglePostContent extends Component {
     } = this.props;
     return (
       <div className="post">
-        <Segment padded>
+        <Segment padded className='post-container'>
           <Feed size="large">
             <Feed.Event>
               <Feed.Label image="https://image.flaticon.com/icons/svg/145/145849.svg" />

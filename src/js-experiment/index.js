@@ -1,94 +1,43 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-
-import thunk from 'redux-thunk';
-import * as api from '../utils/api';
-import categories from '../reducers/categories';
-
-// const defaultData = {
-//   categories: [
-//     {
-//       name: 'react',
-//       path: 'react'
-//     },
-//     {
-//       name: 'redux',
-//       path: 'redux'
-//     },
-//     {
-//       name: 'udacity',
-//       path: 'udacity'
-//     }
-//   ]
-// }
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const loadAllCategories = categories => {
-  return {
-    type: 'GET_ALL_CATEGORIES',
-    categories
+const posts = [
+  {
+    id: '8xf0y6ziyjabvozdd253nd',
+    timestamp: 1467166872634,
+    title: 'Udacity is the best place to learn React',
+    body: 'Everyone says so after all.',
+    author: 'thingtwo',
+    category: 'udacity',
+    voteScore: 36,
+    deleted: false,
+    commentCount: 2
+  },
+  {
+    id: '6ni6ok3ym7mf1p33lnez',
+    timestamp: 1468479767190,
+    title: 'Learn Redux in 10 minutes!',
+    body: 'Just kidding. It takes more than 10 minutes to learn technology.',
+    author: 'thingone',
+    category: 'redux',
+    voteScore: -15,
+    deleted: false,
+    commentCount: 0
+  },
+  {
+    id: '9c85dea2cde87682c179',
+    timestamp: 1492380534238,
+    title: 'Udacity Nanodegree',
+    body: 'Learn the skills you need to get the jobs you want',
+    author: 'thingthree',
+    category: 'udacity',
+    voteScore: 3,
+    deleted: false,
+    commentCount: 0
   }
-};
+];
 
-export function fetchAllCategories() {
-  return function(dispatch) {
-    return api.getAllCategories().then(categories => {
-      dispatch(loadAllCategories(categories));
-
-    }).catch(error => {
-      throw(error);
-    });
-  };
+const PostSelectors = posts => {
+  return posts.sort((a, b) => {
+    return a.voteScore > b.voteScore ? 1 : -1
+  })
 }
 
-// const fetchAllCategories = () => dispatch =>
-//   api
-//     .getAllCategories()
-//     .then(categories => console.log(categories))
-//     .then(categories => dispatch(loadAllCategories(categories)));
-
-const initialCategoriesState = [];
-
-const categoriesReducer = (state = initialCategoriesState, action) => {
-  switch (action.type) {
-    case 'GET_ALL_CATEGORIES':
-      return action.categories;
-    default:
-      return state;
-  }
-};
-
-const store = createStore(
-  combineReducers({
-    cat: categoriesReducer
-  }),
-  composeEnhancers(applyMiddleware(thunk))
-);
-
-console.log(store.getState());
-
-store.dispatch(fetchAllCategories());
-
-console.log(store.getState());
-
-
-// const oldState = [{ name: 'awesome' }];
-
-// const newState = [
-//   {
-//     name: 'react',
-//     path: 'react'
-//   },
-//   {
-//     name: 'redux',
-//     path: 'redux'
-//   },
-//   {
-//     name: 'udacity',
-//     path: 'udacity'
-//   }
-// ];
-
-// const result = [...oldState, ...newState];
-
-// console.log(result);
+console.log(PostSelectors(posts));

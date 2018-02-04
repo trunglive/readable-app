@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react';
 
 const SingleCategoryContent = ({ path, name }) => (
   <Link to={path}>
-    <Button color="blue">{name}</Button>
+    <Button className="category-button">#{name}</Button>
   </Link>
 );
 

@@ -112,7 +112,7 @@ class PostForm extends Component {
                 onChange={this.onBodyChange}
               />
 
-              <Form.Button>Submit</Form.Button>
+              <Form.Button className="submit-button">Submit</Form.Button>
             </Form>
           </Grid.Column>
         </Grid>

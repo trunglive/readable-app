@@ -11,13 +11,15 @@ class PostsByCategories extends Component {
 
   render() {
     const { posts } = this.props;
-  
+
     return (
       <Grid centered>
-        <ul>
-          {posts.length > 0 &&
-            posts.map(post => <SinglePostContent key={post.id} {...post} />)}
-        </ul>
+        <Grid.Column width={8}>
+          <ul>
+            {posts.length > 0 &&
+              posts.map(post => <SinglePostContent key={post.id} {...post} />)}
+          </ul>
+        </Grid.Column>
       </Grid>
     );
   }

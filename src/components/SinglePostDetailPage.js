@@ -16,20 +16,21 @@ class SinglePostDetailPage extends Component {
 
   render() {
     const { post, comments } = this.props;
-
+    const commentsId = comments.map(comment => comment.id);
+    // console.log(this.props.history.push);
     return (
       <Container>
-        <Grid>
-          {post.length > 0 && <SinglePostContent {...post[0]} />}
-         
+        <Grid centered>
+          <Grid.Column width={8}>
+            {post.length > 0 && <SinglePostContent {...post[0]} commentsId={commentsId} goToHomepage={this.props.history.push} />}
+
             {comments.length > 0 &&
               comments.map(comment => (
                 <SingleCommentContent key={comment.id} {...comment} />
               ))}
-          
-
-          <CreateCommentForm parentId={this.props.match.params.id} />
+          </Grid.Column>
         </Grid>
+        <CreateCommentForm parentId={this.props.match.params.id} />
       </Container>
     );
   }

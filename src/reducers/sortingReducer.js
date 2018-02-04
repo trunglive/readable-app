@@ -6,7 +6,7 @@ import {
 } from '../actions/sortingActions';
 
 const initialSortingState = {
-  sortBy: 'Vote score (highest)'
+  sortBy: 'Highest Vote'
 };
 
 const sortingReducer = (state = initialSortingState, action) => {
@@ -24,12 +24,12 @@ const sortingReducer = (state = initialSortingState, action) => {
     case SORT_BY_HIGHEST_VOTE_SCORE:
       return {
         ...state,
-        sortBy: 'Vote score (highest)'
+        sortBy: 'Highest Vote'
       };
     case SORT_BY_LOWEST_VOTE_SCORE:
       return {
         ...state,
-        sortBy: 'Vote score (lowest)'
+        sortBy: 'Lowest Vote'
       };
     default:
       return state;

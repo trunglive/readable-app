@@ -4,19 +4,22 @@ import { Grid, Button, Icon } from 'semantic-ui-react';
 import { Container } from 'semantic-ui-react';
 import AllCategories from './AllCategories';
 import AllPosts from './AllPosts';
+import SortingDropdown from './SortingDropdown';
 
 const HomePage = () => (
   <Grid centered>
-    <Link to="/createpost">
-      <Button color="orange" className="add-post-button" size="tiny">
-        <Icon name="plus circle" />
-        Add Post
-      </Button>
-    </Link>
-
-    <Grid.Row>
+    <Grid.Column width={8}>
+      <Container textAlign="right">
+        <Link to="/createpost">
+          <Button className="add-post-button" size="small">
+            <Icon name="plus" />
+            Add Post
+          </Button>
+        </Link>
+        <SortingDropdown />
+      </Container>
       <AllPosts />
-    </Grid.Row>
+    </Grid.Column>
   </Grid>
 );
 

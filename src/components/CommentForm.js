@@ -56,11 +56,13 @@ class CommentForm extends Component {
 
   render() {
     return (
-      <Grid celled="internally" centered>
-        <Grid.Row>
+      <Grid columns={2} celled="internally" centered>
+          
+          <Grid.Column className="comment-form">
           {this.state.error && (
             <Message warning header="Error" content={this.state.error} />
           )}
+
           <Form onSubmit={this.onFormSubmit}>
             <Form.Field required>
               <label>Author</label>
@@ -81,10 +83,11 @@ class CommentForm extends Component {
               onChange={this.onBodyChange}
             />
 
-            <Form.Button>Submit</Form.Button>
+            <Form.Button className="submit-button">Submit</Form.Button>
           </Form>
-        </Grid.Row>
-      </Grid>
+          </Grid.Column>
+        </Grid>
+
     );
   }
 }

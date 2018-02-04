@@ -1,3 +1,22 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  /* font-size: 19px; */
+  background-color: #fafbfc;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+}
+
 .navigation {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -5,14 +24,80 @@
 
 .post {
   margin-top: 60px;
-  /* margin-left: 30px;
-  margin-right: 30px; */
 }
-/* 
-.add-post-button.button {
-  margin-top: 40px;
-} */
+
+#post-content {
+  padding-bottom: 20px;
+  padding-right: 20px;
+  color: #767676;
+  font-size: 15px;
+}
+
 .single-comment-group {
   margin-top: 30px;
 }
 
+.comment-form {
+  margin-top: 40px;
+}
+
+.category-button.button {
+  transition: all 0.3s ease-out;
+}
+
+.delete-post-button.button,
+.add-post-button.button,
+.edit-post-button.button {
+  font-weight: 300;
+  transition: all 0.3s ease-out;
+}
+
+.category-button.button:hover,
+.category-button.button:focus {
+  color: #fff;
+  background-color: #1d9efc;
+}
+
+.author-name {
+  color: #1d9efc;
+}
+
+.author-link,
+.title-link {
+  color: #1d9efc;
+}
+
+.category-button.button,
+.add-post-button.button,
+.delete-post-button.button,
+.edit-post-button.button {
+  background-color: #eee;
+}
+
+.delete-post-button.button:hover {
+  color: #fff;
+  background-color: #f06220;
+}
+
+.submit-button .button:hover,
+.add-post-button.button:hover,
+.edit-post-button.button:hover {
+  color: #fff;
+  background-color: #1d9efc;
+}
+
+#post-icon.icon {
+  font-size: 15px;
+}
+#post-icon.icon:hover {
+  color: #1d9efc;
+}
+
+.add {
+  color: #767676;
+}
+
+.sorting-dropdown {
+  margin-left: 25px;
+  color: #767676;
+}

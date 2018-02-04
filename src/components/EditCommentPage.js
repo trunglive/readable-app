@@ -13,7 +13,9 @@ class EditCommentPage extends Component {
     return (
       <div>
         <Container textAlign="center">
+          <div>
           Editing Comment
+          </div>
           <CommentForm
             commentInfo={comment[0]}
             onSubmit={content => {

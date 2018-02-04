@@ -22,7 +22,13 @@ class SinglePostDetailPage extends Component {
       <Container>
         <Grid centered>
           <Grid.Column width={8}>
-            {post.length > 0 && <SinglePostContent {...post[0]} commentsId={commentsId} goToHomepage={this.props.history.push} />}
+            {post.length > 0 && (
+              <SinglePostContent
+                {...post[0]}
+                commentsId={commentsId}
+                goToHomepage={this.props.history.push}
+              />
+            )}
 
             {comments.length > 0 &&
               comments.map(comment => (

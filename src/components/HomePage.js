@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Button, Icon } from 'semantic-ui-react';
-import { Container } from 'semantic-ui-react';
-import AllCategories from './AllCategories';
+import { Container, Grid, Button, Icon } from 'semantic-ui-react';
 import AllPosts from './AllPosts';
 import SortingDropdown from './SortingDropdown';
 

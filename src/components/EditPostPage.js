@@ -8,7 +8,7 @@ class EditPostPage extends Component {
     const post = this.props.posts.filter(
       post => post.id === this.props.match.params.id
     );
-  
+
     return (
       <div>
         <PostForm

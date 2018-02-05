@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Dropdown, Icon } from 'semantic-ui-react';
 import {
+  sortByNewestPost,
+  sortByOldestPost,
   sortByHighestVoteScore,
   sortByLowestVoteScore
 } from '../actions/sortingActions';
@@ -9,7 +11,7 @@ import { fetchAllPosts } from '../actions/postsActions';
 
 const trigger = (
   <span>
-    <Icon name="user" /> Sort By
+    <Icon name="filter" /> Sort By
   </span>
 );
 
@@ -19,23 +21,26 @@ const options = [
     text: <span>Sorting Criteria</span>,
     disabled: false
   },
-
-  { key: 'highest', text: 'Highest Vote', value: 'highestVote' },
-  { key: 'lowest', text: 'Lowest Vote', value: 'lowestVote' }
+  { key: 'newestPost', text: 'Newest Post (Default)', value: 'newestPost' },
+  { key: 'oldestPost', text: 'Oldest Post', value: 'oldestPost' },
+  { key: 'highestPost', text: 'Highest Vote', value: 'highestVote' },
+  { key: 'lowestPost', text: 'Lowest Vote', value: 'lowestVote' }
 ];
 
 class SortingDropdown extends Component {
   state = { options };
 
   handleChange = (e, { value }) => {
-    if (value === 'highestVote') {
+    if (value === 'newestPost') {
+      this.props.sortByNewestPost();
+    } else if (value === 'oldestPost') {
+      this.props.sortByOldestPost();
+    } else if (value === 'highestVote') {
       this.props.sortByHighestVoteScore();
-      this.props.fetchAllPosts();
     } else if (value === 'lowestVote') {
       this.props.sortByLowestVoteScore();
-      this.props.fetchAllPosts();
     }
-    this.setState({ currentValue: value });
+    this.props.fetchAllPosts();
   };
 
   render() {
@@ -44,7 +49,6 @@ class SortingDropdown extends Component {
         trigger={trigger}
         options={this.state.options}
         onChange={this.handleChange}
-        value={this.state.currentValue}
         className="sorting-dropdown"
       />
     );
@@ -56,7 +60,9 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
+  fetchAllPosts,
+  sortByNewestPost,
+  sortByOldestPost,
   sortByHighestVoteScore,
-  sortByLowestVoteScore,
-  fetchAllPosts
+  sortByLowestVoteScore
 })(SortingDropdown);

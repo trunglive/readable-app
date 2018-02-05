@@ -1,14 +1,14 @@
-export const SORT_BY_NEWEST_DATE = 'SORT_BY_NEWEST_DATE';
-export const SORT_BY_OLDEST_DATE = 'SORT_BY_OLDEST_DATE';
+export const SORT_BY_NEWEST_POST = 'SORT_BY_NEWEST_POST';
+export const SORT_BY_OLDEST_POST = 'SORT_BY_OLDEST_POST';
 export const SORT_BY_HIGHEST_VOTE_SCORE = 'SORT_BY_HIGHEST_VOTE_SCORE';
 export const SORT_BY_LOWEST_VOTE_SCORE = 'SORT_BY_LOWEST_VOTE_SCORE';
 
-export const sortByNewestDate = () => ({
-  type: SORT_BY_NEWEST_DATE
+export const sortByNewestPost = () => ({
+  type: SORT_BY_NEWEST_POST
 });
 
-export const sortByOldestDate = () => ({
-  type: SORT_BY_OLDEST_DATE
+export const sortByOldestPost = () => ({
+  type: SORT_BY_OLDEST_POST
 });
 
 export const sortByHighestVoteScore = () => ({

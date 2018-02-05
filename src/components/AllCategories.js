@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'semantic-ui-react';
-
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SingleCategoryContent from './SingleCategoryContent';
@@ -20,7 +19,7 @@ class AllCategories extends Component {
       <div>
         <Container textAlign="center">
           <ul>
-            <Link to='/'>
+            <Link to="/">
               <Button className="category-button">All</Button>
             </Link>
             {categories.length > 0 &&

@@ -1,6 +1,6 @@
 # readable
 
-React Nanodegree Project #2
+[Udacity React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) Project #2
 
 ## Start Developing
 

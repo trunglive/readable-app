@@ -14,7 +14,6 @@ const Navigation = () => (
         />
       </Link>
     </Container>
-
     <AllCategories />
   </div>
 );

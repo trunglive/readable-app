@@ -1,25 +1,25 @@
 import {
-  SORT_BY_NEWEST_DATE,
-  SORT_BY_OLDEST_DATE,
+  SORT_BY_NEWEST_POST,
+  SORT_BY_OLDEST_POST,
   SORT_BY_HIGHEST_VOTE_SCORE,
   SORT_BY_LOWEST_VOTE_SCORE
 } from '../actions/sortingActions';
 
 const initialSortingState = {
-  sortBy: {}
+  sortBy: 'Newest Post'
 };
 
 const sortingReducer = (state = initialSortingState, action) => {
   switch (action.type) {
-    case SORT_BY_NEWEST_DATE:
+    case SORT_BY_NEWEST_POST:
       return {
         ...state,
-        sortBy: 'Newest date'
+        sortBy: 'Newest Post'
       };
-    case SORT_BY_OLDEST_DATE:
+    case SORT_BY_OLDEST_POST:
       return {
         ...state,
-        sortBy: 'Oldest date'
+        sortBy: 'Oldest Post'
       };
     case SORT_BY_HIGHEST_VOTE_SCORE:
       return {

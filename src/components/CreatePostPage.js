@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import { fetchAddPost } from '../actions/postsActions';
 
-const CreatePostPage = (props) => (
+const CreatePostPage = props => (
   <div>
     <PostForm
       onSubmit={post => {

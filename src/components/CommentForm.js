@@ -22,6 +22,7 @@ class CommentForm extends Component {
       author: props.commentInfo ? props.commentInfo.author : '',
       body: props.commentInfo ? props.commentInfo.body : '',
       voteScore: props.commentInfo ? props.commentInfo.voteScore : 0,
+      parentDeleted: props.commentInfo ? false : true,
       error: ''
     };
   }
@@ -51,14 +52,18 @@ class CommentForm extends Component {
         deleted: false,
         parentDeleted: false
       });
+      this.setState({
+        id: uuid(),
+        author: '',
+        body: ''
+      });
     }
   };
 
   render() {
     return (
       <Grid columns={2} celled="internally" centered>
-          
-          <Grid.Column className="comment-form">
+        <Grid.Column className="comment-form">
           {this.state.error && (
             <Message warning header="Error" content={this.state.error} />
           )}
@@ -85,9 +90,8 @@ class CommentForm extends Component {
 
             <Form.Button className="submit-button">Submit</Form.Button>
           </Form>
-          </Grid.Column>
-        </Grid>
-
+        </Grid.Column>
+      </Grid>
     );
   }
 }

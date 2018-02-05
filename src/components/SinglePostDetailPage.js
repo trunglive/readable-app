@@ -6,7 +6,6 @@ import { fetchPost } from '../actions/postsActions';
 import SinglePostContent from './SinglePostContent';
 import SingleCommentContent from './SingleCommentContent';
 import CreateCommentForm from './CreateCommentForm';
-import Comment from 'semantic-ui-react/dist/commonjs/views/Comment/Comment';
 
 class SinglePostDetailPage extends Component {
   componentDidMount() {
@@ -15,21 +14,20 @@ class SinglePostDetailPage extends Component {
   }
 
   render() {
-    const { post, comments } = this.props;
+    const { posts, comments } = this.props;
     const commentsId = comments.map(comment => comment.id);
-    // console.log(this.props.history.push);
+
     return (
       <Container>
         <Grid centered>
           <Grid.Column width={8}>
-            {post.length > 0 && (
+            {posts.length > 0 && (
               <SinglePostContent
-                {...post[0]}
+                {...posts[0]}
                 commentsId={commentsId}
                 goToHomepage={this.props.history.push}
               />
             )}
-
             {comments.length > 0 &&
               comments.map(comment => (
                 <SingleCommentContent key={comment.id} {...comment} />
@@ -42,12 +40,10 @@ class SinglePostDetailPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    post: state.posts,
-    comments: state.comments
-  };
-};
+const mapStateToProps = ({ posts, comments }) => ({
+  posts,
+  comments
+});
 
 export default connect(mapStateToProps, { fetchPost, fetchAllComments })(
   SinglePostDetailPage

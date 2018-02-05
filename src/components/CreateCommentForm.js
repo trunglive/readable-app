@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Grid } from 'semantic-ui-react';
 import CommentForm from './CommentForm';
 import { fetchAddComment } from '../actions/commentsActions';
 

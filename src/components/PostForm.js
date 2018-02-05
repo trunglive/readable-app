@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  Message,
-  Button,
-  Form,
-  Input,
-  Container,
-  Grid
-} from 'semantic-ui-react';
+import { Message, Button, Form, Input, Grid } from 'semantic-ui-react';
 import uuid from 'uuid';
+import moment from 'moment';
 
 class PostForm extends Component {
   constructor(props) {
@@ -17,6 +11,7 @@ class PostForm extends Component {
     this.state = {
       id: props.postInfo ? props.postInfo.id : uuid(),
       category: props.postInfo ? props.postInfo.category : 'react',
+      timestamp: moment().valueOf(),
       title: props.postInfo ? props.postInfo.title : '',
       author: props.postInfo ? props.postInfo.author : '',
       body: props.postInfo ? props.postInfo.body : '',
@@ -26,8 +21,8 @@ class PostForm extends Component {
     };
   }
 
-  onCategoryChange = e => {
-    const category = e.target.value;
+  onCategoryChange = (e, result) => {
+    const category = result.value;
     this.setState({ category });
   };
 
@@ -48,13 +43,12 @@ class PostForm extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-
     if (!this.state.title || !this.state.author || !this.state.body) {
-      this.setState(() => ({ error: 'Please fill out all the forms' }));
+      this.setState(() => ({ error: 'Please fill out all the fields' }));
     } else {
       this.props.onSubmit({
         id: this.state.id,
-        timestamp: Date.now(),
+        timestamp: this.state.timestamp,
         title: this.state.title,
         body: this.state.body,
         author: this.state.author,
@@ -62,6 +56,12 @@ class PostForm extends Component {
         voteScore: this.state.voteScore,
         deleted: false,
         commentCount: this.state.commentCount
+      });
+      this.setState({
+        title: '',
+        body: '',
+        author: '',
+        category: ''
       });
     }
   };
@@ -79,7 +79,7 @@ class PostForm extends Component {
                 required
                 label="Category"
                 options={options}
-                placeholder="Category"
+                placeholder="category"
                 value={this.state.category}
                 onChange={this.onCategoryChange}
               />
@@ -107,7 +107,7 @@ class PostForm extends Component {
                 required
                 label="Content"
                 type="text"
-                placeholder="body"
+                placeholder="content"
                 value={this.state.body}
                 onChange={this.onBodyChange}
               />
@@ -124,7 +124,7 @@ class PostForm extends Component {
 export default PostForm;
 
 const options = [
-  { text: 'React', value: 'react' },
-  { text: 'Redux', value: 'redux' },
-  { text: 'Udacity', value: 'udacity' }
+  { key: 'react', text: 'React', value: 'react' },
+  { key: 'redux', text: 'Redux', value: 'redux' },
+  { key: 'udacity', text: 'Udacity', value: 'udacity' }
 ];

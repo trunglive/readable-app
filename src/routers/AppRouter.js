@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 import HomePage from '../components/HomePage';
-import PostsByCategories from '../components/PostsByCategories';
 import CreatePostPage from '../components/CreatePostPage';
 import EditPostPage from '../components/EditPostPage';
 import EditCommentPage from '../components/EditCommentPage';
+import PostsByCategories from '../components/PostsByCategories';
 import SinglePostDetailPage from '../components/SinglePostDetailPage';
 import NotFoundPage from '../components/NotFoundPage';
-import AllCategories from '../components/AllCategories';
-import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -23,6 +23,7 @@ const AppRouter = () => (
         <Route exact path="/:category/:id" component={SinglePostDetailPage} />
         <Route component={NotFoundPage} />
       </Switch>
+      <Footer />
     </div>
   </BrowserRouter>
 );

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SingleCategoryContent from './SingleCategoryContent';
 import { fetchAllCategories } from '../actions/categoriesActions';
+import PropTypes from 'prop-types';
 
 class AllCategories extends Component {
   componentDidMount() {
@@ -36,5 +37,9 @@ class AllCategories extends Component {
 const mapStateToProps = ({ categories }) => ({
   categories
 });
+
+AllCategories.propTypes = {
+  categories: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, { fetchAllCategories })(AllCategories);

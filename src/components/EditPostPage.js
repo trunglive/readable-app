@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import { fetchEditPost } from '../actions/postsActions';
+import PropTypes from 'prop-types';
 
 class EditPostPage extends Component {
   render() {
@@ -26,5 +27,9 @@ class EditPostPage extends Component {
 const mapStateToProps = ({ posts }) => ({
   posts
 });
+
+EditPostPage.propTypes = {
+  posts: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, { fetchEditPost })(EditPostPage);

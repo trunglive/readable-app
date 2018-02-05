@@ -20,6 +20,7 @@ import {
 } from '../actions/postsActions';
 import { fetchDeleteComment } from '../actions/commentsActions';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class SinglePostContent extends Component {
   state = {
@@ -159,6 +160,17 @@ class SinglePostContent extends Component {
       </div>
     );
   }
+}
+
+SinglePostContent.propTypes = {
+  id: PropTypes.string.isRequired,
+  timestamp: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  voteScore: PropTypes.number.isRequired,
+  commentCount: PropTypes.number.isRequired
 }
 
 export default connect()(SinglePostContent);

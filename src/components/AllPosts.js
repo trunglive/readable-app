@@ -5,6 +5,7 @@ import PostSelectors from '../selectors/PostSelectors';
 import SinglePostContent from './SinglePostContent';
 import { fetchAllPosts } from '../actions/postsActions';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class AllPosts extends Component {
   componentDidMount() {
@@ -28,5 +29,9 @@ class AllPosts extends Component {
 const mapStateToProps = ({ posts, sorting }) => ({
   posts: PostSelectors(posts, sorting)
 });
+
+AllPosts.propTypes = {
+  posts: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, { fetchAllPosts })(AllPosts);

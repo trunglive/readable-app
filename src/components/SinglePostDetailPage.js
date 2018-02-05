@@ -6,6 +6,7 @@ import { fetchPost } from '../actions/postsActions';
 import SinglePostContent from './SinglePostContent';
 import SingleCommentContent from './SingleCommentContent';
 import CreateCommentForm from './CreateCommentForm';
+import PropTypes from 'prop-types';
 
 class SinglePostDetailPage extends Component {
   componentDidMount() {
@@ -44,6 +45,11 @@ const mapStateToProps = ({ posts, comments }) => ({
   posts,
   comments
 });
+
+SinglePostDetailPage.propTypes = {
+  posts: PropTypes.array.isRequired,
+  comments: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, { fetchPost, fetchAllComments })(
   SinglePostDetailPage

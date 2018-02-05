@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
 import SinglePostContent from './SinglePostContent';
 import { fetchPostsByCategories } from '../actions/postsActions';
+import PropTypes from 'prop-types';
 
 class PostsByCategories extends Component {
   componentDidMount() {
@@ -28,6 +29,10 @@ class PostsByCategories extends Component {
 const mapStateToProps = ({ posts }) => ({
   posts
 });
+
+PostsByCategories.propTypes = {
+  posts: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, { fetchPostsByCategories })(
   PostsByCategories

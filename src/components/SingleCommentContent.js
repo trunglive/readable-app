@@ -7,6 +7,7 @@ import {
   fetchDeleteComment,
   fetchVoteComment
 } from '../actions/commentsActions';
+import PropTypes from 'prop-types';
 
 const SingleCommentContent = ({
   dispatch,
@@ -64,5 +65,13 @@ const SingleCommentContent = ({
     </Comment.Group>
   );
 };
+
+SingleCommentContent.propTypes = {
+  id: PropTypes.string.isRequired,
+  parentId: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  voteScore: PropTypes.number.isRequired
+}
 
 export default connect()(SingleCommentContent);

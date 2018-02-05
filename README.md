@@ -1,21 +1,46 @@
-# readable
 
-[Udacity React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) Project #2
+**This is the project #2 for  [Udacity React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) program.**
 
-## Start Developing
+----
 
-To get started developing right away:
+# Readable
+> Readable project is a reddit style discussion web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
 
-* Install and start the project
+This project was built with React, Redux and Semantic UI. The application state (create, read, update, delete, vote, sort posts/comments) is controlled by Redux store. There is no authetication in this app. Users can be able to edit/delete any posts/comments.
 
-  * `yarn install`
-  * `yarn run dev-server`
+## Stack
+- [React](https://facebook.github.io/react)
+- [Redux](https://github.com/reactjs/redux)
+- [React Router](https://github.com/ReactTraining/react-router)
+- [Redux Thunk](https://github.com/gaearon/redux-thunk)
+- [Sematic UI React](https://react.semantic-ui.com/introduction)
 
-* Install and start the API server
-  * `cd api-server`
-  * `yarn install`
-  * `node server`
+## API
+This application uses API endpoints designed by Udacity. More information about the server's endpoints can be found at [Udacity's API](https://github.com/udacity/reactnd-project-readable-starter/blob/master/README.md).
 
-## API Server
+## Quick Start
+**Clone the project**:
+```shell
+$ git clone https://github.com/trunglive/readable.git
+```
 
-Information about the API server and how to use it can be found in its [README file](api-server/README.md).
+**Run Backend Server**:
+```shell
+$ cd src/api-server/
+$ yarn install
+$ node server
+```
+
+**Run Front-End React App**:
+```shell
+$ cd readable
+$ yarn install
+$ yarn run dev-server
+```
+
+## Contributors
+Trung Vo ([trunglive](https://github.com/trunglive))
+
+## License
+
+This project is licensed under the MIT License. Please check the `LICENSE` file.

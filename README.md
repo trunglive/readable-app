@@ -13,7 +13,7 @@ This project was built with React, Redux and Semantic UI. The application state 
 - [Redux](https://github.com/reactjs/redux)
 - [React Router](https://github.com/ReactTraining/react-router)
 - [Redux Thunk](https://github.com/gaearon/redux-thunk)
-- [Sematic UI React](https://react.semantic-ui.com/introduction)
+- [Semantic UI React](https://react.semantic-ui.com/introduction)
 
 ## API
 This application uses API endpoints designed by Udacity. More information about the server's endpoints can be found at [Udacity's API](https://github.com/udacity/reactnd-project-readable-starter/blob/master/README.md).

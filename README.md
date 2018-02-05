@@ -35,7 +35,7 @@ $ node server
 ```shell
 $ cd readable
 $ yarn install
-$ yarn run dev-server
+$ yarn run start
 ```
 
 ## Contributors

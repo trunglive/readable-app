@@ -15,7 +15,8 @@ const SingleCommentContent = ({
   parentId,
   body,
   author,
-  voteScore
+  voteScore,
+  singlePostUrl
 }) => {
   return (
     <Comment.Group>
@@ -51,7 +52,10 @@ const SingleCommentContent = ({
                 </div>
               </Comment.Metadata>
             </Comment.Action>
-            <Link to={`/editcomment/${id}`}>Edit</Link>
+            <Link to={{
+              pathname: `/editcomment/${id}`,
+              state: { post: {singlePostUrl} }
+            }}>Edit</Link>
             <Comment.Action
               onClick={() => {
                 dispatch(fetchDeleteComment(id));

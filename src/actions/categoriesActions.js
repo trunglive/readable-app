@@ -1,6 +1,5 @@
 import * as api from '../utils/api';
-
-export const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES';
+import { GET_ALL_CATEGORIES } from './actionTypes';
 
 export const loadAllCategories = categories => ({
   type: GET_ALL_CATEGORIES,

@@ -10,6 +10,8 @@ class EditCommentPage extends Component {
     const comment = this.props.comments.filter(
       comment => comment.id === this.props.match.params.id
     );
+    // console.log(this.props);
+    // console.log(comment[0]);
 
     return (
       <div>
@@ -17,7 +19,11 @@ class EditCommentPage extends Component {
           <CommentForm
             commentInfo={comment[0]}
             onSubmit={content => {
-              this.props.fetchEditComment(content.id, content);
+              // console.log(this.props);
+              this.props.history.push(
+                this.props.location.state.post.singlePostUrl
+              );
+              this.props.fetchEditComment(content.parentId, content);
             }}
           />
         </Container>
@@ -32,6 +38,6 @@ const mapStateToProps = ({ comments }) => ({
 
 EditCommentPage.propTypes = {
   comments: PropTypes.array.isRequired
-}
+};
 
 export default connect(mapStateToProps, { fetchEditComment })(EditCommentPage);

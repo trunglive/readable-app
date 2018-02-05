@@ -25,7 +25,7 @@ class AllCategories extends Component {
             </Link>
             {categories.length > 0 &&
               categories.map(category => (
-                <SingleCategoryContent key={category.name} {...category} />
+                <SingleCategoryContent key={category.path} {...category} />
               ))}
           </ul>
         </Container>

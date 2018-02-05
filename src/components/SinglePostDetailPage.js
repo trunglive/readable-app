@@ -17,7 +17,7 @@ class SinglePostDetailPage extends Component {
   render() {
     const { posts, comments } = this.props;
     const commentsId = comments.map(comment => comment.id);
-
+    // console.log(this.props.match.url);
     return (
       <Container>
         <Grid centered>
@@ -31,7 +31,7 @@ class SinglePostDetailPage extends Component {
             )}
             {comments.length > 0 &&
               comments.map(comment => (
-                <SingleCommentContent key={comment.id} {...comment} />
+                <SingleCommentContent key={comment.id} {...comment} singlePostUrl={this.props.match.url} />
               ))}
           </Grid.Column>
         </Grid>

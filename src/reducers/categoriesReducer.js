@@ -1,4 +1,4 @@
-import { GET_ALL_CATEGORIES } from '../actions/categoriesActions';
+import { GET_ALL_CATEGORIES } from '../actions/actionTypes';
 
 const initialCategoriesState = [];
 const categoriesReducer = (state = initialCategoriesState, action) => {

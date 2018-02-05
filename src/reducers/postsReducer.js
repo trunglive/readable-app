@@ -6,7 +6,7 @@ import {
   VOTE_POST,
   EDIT_POST,
   DELETE_POST
-} from '../actions/postsActions';
+} from '../actions/actionTypes';
 
 const initialPostsState = [];
 

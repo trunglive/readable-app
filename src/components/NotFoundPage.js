@@ -1,10 +1,12 @@
 import React from 'react';
-import { specialLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 const NotFoundPage = () => (
-  <div>
-    Not Found 404 - <specialLink to="/">Go back to Homepage</specialLink>
-  </div>
+  <Container textAlign="center">
+    <p>This page doesn't exist</p>
+    <span>Go back to </span><Link to="/">Homepage</Link>
+  </Container>
 );
 
 export default NotFoundPage;

@@ -66,7 +66,11 @@ class SinglePostContent extends Component {
           </p>
         ) : (
           <Segment padded className="post-container">
-            <Label as='a' tag color='orange' attached='top right' id='post-tag'>{category}</Label>
+            <Link to={`/topic/${category}`}>
+              <Label tag color="orange" attached="top right" id="post-tag">
+                {category}
+              </Label>
+            </Link>
             <Feed size="large">
               <Feed.Event>
                 <Feed.Label image="https://image.flaticon.com/icons/svg/145/145849.svg" />
@@ -74,7 +78,10 @@ class SinglePostContent extends Component {
                   <Feed.Summary>
                     <a className="author-name">{author}</a>
                     <span className="author-added"> added </span>
-                    <Link to={`/${category}/${id}`} className="title-link">
+                    <Link
+                      to={`/topic/${category}/${id}`}
+                      className="title-link"
+                    >
                       {title}
                     </Link>
                     <Feed.Date id="post-timestamp">
@@ -102,7 +109,10 @@ class SinglePostContent extends Component {
                         this.handleVoting();
                       }}
                     />
-                    <Link to={`/${category}/${id}`} className="title-link">
+                    <Link
+                      to={`/topic/${category}/${id}`}
+                      className="title-link"
+                    >
                       <Icon id="post-icon" name="comment" />
                       {commentCount}
                     </Link>
@@ -171,6 +181,6 @@ SinglePostContent.propTypes = {
   category: PropTypes.string.isRequired,
   voteScore: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired
-}
+};
 
 export default connect()(SinglePostContent);

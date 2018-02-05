@@ -9,7 +9,8 @@ import {
   Header,
   Modal,
   Button,
-  Segment
+  Segment,
+  Label
 } from 'semantic-ui-react';
 import {
   fetchAllPosts,
@@ -64,6 +65,7 @@ class SinglePostContent extends Component {
           </p>
         ) : (
           <Segment padded className="post-container">
+            <Label as='a' tag color='orange' attached='top right' id='post-tag'>{category}</Label>
             <Feed size="large">
               <Feed.Event>
                 <Feed.Label image="https://image.flaticon.com/icons/svg/145/145849.svg" />

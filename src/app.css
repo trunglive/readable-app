@@ -27,7 +27,7 @@ a {
 }
 
 .post-container.segment {
-  border: 5px;
+  border: 1px;
 }
 
 .post {
@@ -41,6 +41,10 @@ a {
   font-size: 15px;
 }
 
+#post-tag {
+  background-color: #1d9efc !important;
+}
+
 .single-comment-group,
 .comment-form {
   margin-top: 38px;
@@ -51,7 +55,7 @@ a {
 .add-post-button.button,
 .edit-post-button.button {
   font-weight: 300;
-  background-color: #eee;
+  background-color: #ededed;
   transition: all 0.3s ease-out;
 }
 

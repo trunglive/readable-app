@@ -7,7 +7,7 @@ import PostsByCategories from './PostsByCategories';
 import { fetchPostsByCategories } from '../actions/postsActions';
 
 const SingleCategoryContent = ({ name, dispatch }) => (
-  <Link to={`/topic/${name}`}>
+  <Link to={`/${name}`}>
     <Button
       className="category-button"
       onClick={() => dispatch(fetchPostsByCategories(name))}

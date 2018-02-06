@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Form, Button, Container } from 'semantic-ui-react';
 import { fetchAllComments } from '../actions/commentsActions';
-import { fetchPost } from '../actions/postsActions';
+import { fetchPost, fetchAllPosts } from '../actions/postsActions';
 import SinglePostContent from './SinglePostContent';
 import SingleCommentContent from './SingleCommentContent';
 import CreateCommentForm from './CreateCommentForm';
@@ -13,21 +13,24 @@ import NotFoundPage from './NotFoundPage';
 
 class SinglePostDetailPage extends Component {
   componentDidMount() {
-    this.props.fetchPost(this.props.match.params.id);
-    this.props.fetchAllComments(this.props.match.params.id);
+    this.props.fetchAllPosts();
+    this.props.fetchAllComments(this.props.match.params.post_id);
   }
 
   render() {
-    const { comments } = this.props;
-    const commentsId = comments.map(comment => comment.id);
+    const { posts, comments } = this.props;
+    const topic = ['react', 'redux', 'udacity'];
+    const { category } = this.props.match.params;
+
     const post = this.props.posts.filter(
-      post => post.id === this.props.match.params.id
+      post => post.id === this.props.match.params.post_id
     );
     const singlePost = { ...post[0] };
+    const commentsId = comments.map(comment => comment.id);
 
     return (
       <div>
-        {Object.keys(singlePost).length > 0 ? (
+        {topic.includes(category) && Object.keys(singlePost).length > 0 ? (
           <div>
             <Grid centered columns={2} stackable relaxed>
               <Grid.Column>
@@ -55,7 +58,7 @@ class SinglePostDetailPage extends Component {
                   ))}
               </Grid.Column>
             </Grid>
-            <CreateCommentForm parentId={this.props.match.params.id} />
+            <CreateCommentForm parentId={this.props.match.params.post_id} />
           </div>
         ) : (
           <NotFoundPage />
@@ -74,6 +77,6 @@ SinglePostDetailPage.propTypes = {
   comments: PropTypes.array.isRequired
 };
 
-export default connect(mapStateToProps, { fetchPost, fetchAllComments })(
+export default connect(mapStateToProps, { fetchAllPosts, fetchAllComments })(
   SinglePostDetailPage
 );

@@ -19,10 +19,10 @@ const AppRouter = () => (
         <Route exact path="/createpost" component={CreatePostPage} />
         <Route exact path="/editpost/:id" component={EditPostPage} />
         <Route exact path="/editcomment/:id" component={EditCommentPage} />
-        <Route exact path="/topic/:category" component={PostsByCategories} />
+        <Route exact path="/:category" component={PostsByCategories} />
         <Route
           exact
-          path="/topic/:category/:id"
+          path="/:category/:post_id"
           component={SinglePostDetailPage}
         />
         <Route component={NotFoundPage} />

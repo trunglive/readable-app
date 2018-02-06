@@ -67,7 +67,7 @@ class SinglePostContent extends Component {
           <NotFoundPage />
         ) : (
           <Segment padded className="post-container">
-            <Link to={`/topic/${category}`}>
+            <Link to={`/${category}`}>
               <Label tag color="orange" attached="top right" id="post-tag">
                 {category}
               </Label>
@@ -80,7 +80,7 @@ class SinglePostContent extends Component {
                     <a className="author-name">{author}</a>
                     <span className="author-added"> added </span>
                     <Link
-                      to={`/topic/${category}/${id}`}
+                      to={`/${category}/${id}`}
                       className="title-link"
                     >
                       {title}
@@ -111,7 +111,7 @@ class SinglePostContent extends Component {
                       }}
                     />
                     <Link
-                      to={`/topic/${category}/${id}`}
+                      to={`/${category}/${id}`}
                       className="title-link"
                     >
                       <Icon id="post-icon" name="comment" />

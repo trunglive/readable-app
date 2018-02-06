@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Form, Button, Container } from 'semantic-ui-react';
 import { fetchAllComments } from '../actions/commentsActions';
-import { fetchPost, fetchAllPosts } from '../actions/postsActions';
+import { fetchAllPosts } from '../actions/postsActions';
 import SinglePostContent from './SinglePostContent';
 import SingleCommentContent from './SingleCommentContent';
 import CreateCommentForm from './CreateCommentForm';
@@ -19,10 +19,9 @@ class SinglePostDetailPage extends Component {
 
   render() {
     const { posts, comments } = this.props;
-    const topic = ['react', 'redux', 'udacity'];
     const { category } = this.props.match.params;
-
-    const post = this.props.posts.filter(
+    const topics = posts.map(post => post.category);
+    const post = posts.filter(
       post => post.id === this.props.match.params.post_id
     );
     const singlePost = { ...post[0] };
@@ -30,7 +29,7 @@ class SinglePostDetailPage extends Component {
 
     return (
       <div>
-        {topic.includes(category) && Object.keys(singlePost).length > 0 ? (
+        {topics.includes(category) && Object.keys(singlePost).length > 0 ? (
           <div>
             <Grid centered columns={2} stackable relaxed>
               <Grid.Column>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Button, Icon } from 'semantic-ui-react';
 import AllPosts from './AllPosts';
 import SortingDropdown from './SortingDropdown';
+import { Container, Grid, Button, Icon } from 'semantic-ui-react';
 
 const HomePage = props => (
   <Grid centered columns={2} stackable relaxed>

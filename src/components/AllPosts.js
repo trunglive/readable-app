@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PostSelectors from '../selectors/PostSelectors';
 import SinglePostContent from './SinglePostContent';
-import { fetchAllPosts } from '../actions/postsActions';
-import moment from 'moment';
 import NoPostAlert from './NoPostAlert';
+import { fetchAllPosts } from '../actions/postsActions';
 import PropTypes from 'prop-types';
 
 class AllPosts extends Component {

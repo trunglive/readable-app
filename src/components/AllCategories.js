@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SingleCategoryContent from './SingleCategoryContent';
@@ -11,7 +11,7 @@ class AllCategories extends Component {
     this.props.fetchAllCategories();
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  // handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
     const { categories } = this.props;

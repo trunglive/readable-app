@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'semantic-ui-react';
 import CommentForm from './CommentForm';
-import { fetchEditComment } from '../actions/commentsActions';
-import PropTypes from 'prop-types';
 import NotFoundPage from './NotFoundPage';
+import { fetchEditComment } from '../actions/commentsActions';
+import { Container } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 class EditCommentPage extends Component {
   render() {

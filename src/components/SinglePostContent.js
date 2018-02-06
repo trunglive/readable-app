@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NotFoundPage from '../components/NotFoundPage';
 import {
-  Grid,
+  fetchAllPosts,
+  fetchPost,
+  fetchDeletePost,
+  fetchVotePost
+} from '../actions/postsActions';
+import { fetchDeleteComment } from '../actions/commentsActions';
+import {
   Container,
   Feed,
   Icon,
@@ -13,13 +19,6 @@ import {
   Segment,
   Label
 } from 'semantic-ui-react';
-import {
-  fetchAllPosts,
-  fetchPost,
-  fetchDeletePost,
-  fetchVotePost
-} from '../actions/postsActions';
-import { fetchDeleteComment } from '../actions/commentsActions';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
@@ -79,10 +78,7 @@ class SinglePostContent extends Component {
                   <Feed.Summary>
                     <a className="author-name">{author}</a>
                     <span className="author-added"> added </span>
-                    <Link
-                      to={`/${category}/${id}`}
-                      className="title-link"
-                    >
+                    <Link to={`/${category}/${id}`} className="title-link">
                       {title}
                     </Link>
                     <Feed.Date id="post-timestamp">
@@ -110,10 +106,7 @@ class SinglePostContent extends Component {
                         this.handleVoting();
                       }}
                     />
-                    <Link
-                      to={`/${category}/${id}`}
-                      className="title-link"
-                    >
+                    <Link to={`/${category}/${id}`} className="title-link">
                       <Icon id="post-icon" name="comment" />
                       {commentCount}
                     </Link>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Grid, Button, Comment, Form, Icon } from 'semantic-ui-react';
+import { Comment, Icon } from 'semantic-ui-react';
 import {
   fetchAllComments,
   fetchDeleteComment,
@@ -31,7 +31,7 @@ const SingleCommentContent = ({
         <Comment.Content>
           <Comment.Author>
             {author}
-            <Comment.Metadata className='comment-timestamp'>
+            <Comment.Metadata className="comment-timestamp">
               <div>{moment(timestamp).format('lll')}</div>
             </Comment.Metadata>
           </Comment.Author>

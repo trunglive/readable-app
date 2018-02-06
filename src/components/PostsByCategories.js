@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Grid, Container, Button, Icon } from 'semantic-ui-react';
 import SinglePostContent from './SinglePostContent';
 import NoPostAlert from './NoPostAlert';
 import { fetchPostsByCategories } from '../actions/postsActions';
+import { Grid, Container, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 class PostsByCategories extends Component {

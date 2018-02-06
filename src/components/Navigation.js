@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Header, Grid, Container } from 'semantic-ui-react';
+import { Header, Grid } from 'semantic-ui-react';
 import AllCategories from './AllCategories';
 
 const Navigation = () => (

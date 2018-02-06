@@ -63,7 +63,7 @@ class CommentForm extends Component {
 
   render() {
     return (
-      <Grid columns={2} celled="internally" centered>
+      <Grid columns={2} celled="internally" centered stackable>
         <Grid.Column className="comment-form">
           {this.state.error && (
             <Message warning header="Error" content={this.state.error} />
@@ -89,7 +89,9 @@ class CommentForm extends Component {
               onChange={this.onBodyChange}
             />
 
-            <Form.Button className="submit-button">Submit</Form.Button>
+            <Form.Button className="submit-button">
+              {this.props.commentInfo ? 'Edit Comment' : 'Submit Comment'}
+            </Form.Button>
           </Form>
         </Grid.Column>
       </Grid>

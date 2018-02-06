@@ -6,6 +6,8 @@ import { fetchPost } from '../actions/postsActions';
 import SinglePostContent from './SinglePostContent';
 import SingleCommentContent from './SingleCommentContent';
 import CreateCommentForm from './CreateCommentForm';
+import SortingDropdown from './SortingDropdown';
+import PostSelectors from '../selectors/PostSelectors';
 import PropTypes from 'prop-types';
 
 class SinglePostDetailPage extends Component {
@@ -16,40 +18,51 @@ class SinglePostDetailPage extends Component {
 
   render() {
     const { posts, comments } = this.props;
+    const singlePost = { ...posts[0] };
     const commentsId = comments.map(comment => comment.id);
-    // console.log(this.props.match.url);
+
     return (
-      <Container>
-        <Grid centered>
-          <Grid.Column width={8}>
-            {posts.length > 0 && (
+      <div>
+        <Grid centered columns={2} stackable relaxed>
+          <Grid.Column>
+            <div>
               <SinglePostContent
-                {...posts[0]}
+                {...singlePost}
                 commentsId={commentsId}
                 goToHomepage={this.props.history.push}
               />
-            )}
+              <Container textAlign="right" className="sorting-comment-dropdown">
+                {comments.length > 0 && <SortingDropdown />}
+              </Container>
+            </div>
+
             {comments.length > 0 &&
               comments.map(comment => (
-                <SingleCommentContent key={comment.id} {...comment} singlePostUrl={this.props.match.url} />
+                <SingleCommentContent
+                  key={comment.id}
+                  {...comment}
+                  singlePostUrl={this.props.match.url}
+                />
               ))}
           </Grid.Column>
         </Grid>
-        <CreateCommentForm parentId={this.props.match.params.id} />
-      </Container>
+
+        {Object.keys(singlePost).length > 0 && (
+          <CreateCommentForm parentId={this.props.match.params.id} />
+        )}
+      </div>
     );
   }
 }
 
-const mapStateToProps = ({ posts, comments }) => ({
+const mapStateToProps = ({ posts, comments, sorting }) => ({
   posts,
-  comments
+  comments: PostSelectors(comments, sorting)
 });
 
 SinglePostDetailPage.propTypes = {
-  posts: PropTypes.array.isRequired,
   comments: PropTypes.array.isRequired
-}
+};
 
 export default connect(mapStateToProps, { fetchPost, fetchAllComments })(
   SinglePostDetailPage

@@ -5,6 +5,7 @@ import PostSelectors from '../selectors/PostSelectors';
 import SinglePostContent from './SinglePostContent';
 import { fetchAllPosts } from '../actions/postsActions';
 import moment from 'moment';
+import NoPostAlert from './NoPostAlert';
 import PropTypes from 'prop-types';
 
 class AllPosts extends Component {
@@ -14,13 +15,15 @@ class AllPosts extends Component {
 
   render() {
     const { posts } = this.props;
-    
+
     return (
       <div>
-        <ul>
-          {posts.length > 0 &&
-            posts.map(post => <SinglePostContent key={post.id} {...post} />)}
-        </ul>
+        {!posts.length && (
+          <NoPostAlert mood="smile" message="Let's create a new post" />
+        )}
+
+        {posts.length > 0 &&
+          posts.map(post => <SinglePostContent key={post.id} {...post} />)}
       </div>
     );
   }
@@ -32,6 +35,6 @@ const mapStateToProps = ({ posts, sorting }) => ({
 
 AllPosts.propTypes = {
   posts: PropTypes.array.isRequired
-}
+};
 
 export default connect(mapStateToProps, { fetchAllPosts })(AllPosts);

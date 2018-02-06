@@ -21,10 +21,10 @@ const options = [
     text: <span>Sorting Criteria</span>,
     disabled: false
   },
-  { key: 'newestPost', text: 'Newest Post (Default)', value: 'newestPost' },
-  { key: 'oldestPost', text: 'Oldest Post', value: 'oldestPost' },
-  { key: 'highestPost', text: 'Highest Vote', value: 'highestVote' },
-  { key: 'lowestPost', text: 'Lowest Vote', value: 'lowestVote' }
+  { key: 'newestPost', text: 'Newest', value: 'newestPost' },
+  { key: 'oldestPost', text: 'Oldest', value: 'oldestPost' },
+  { key: 'highestPost', text: 'Popular', value: 'highestVote' },
+  { key: 'lowestPost', text: 'Unpopular', value: 'lowestVote' }
 ];
 
 class SortingDropdown extends Component {

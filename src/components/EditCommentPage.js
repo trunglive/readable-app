@@ -10,8 +10,6 @@ class EditCommentPage extends Component {
     const comment = this.props.comments.filter(
       comment => comment.id === this.props.match.params.id
     );
-    // console.log(this.props);
-    // console.log(comment[0]);
 
     return (
       <div>
@@ -19,11 +17,10 @@ class EditCommentPage extends Component {
           <CommentForm
             commentInfo={comment[0]}
             onSubmit={content => {
-              // console.log(this.props);
               this.props.history.push(
                 this.props.location.state.post.singlePostUrl
               );
-              this.props.fetchEditComment(content.parentId, content);
+              this.props.fetchEditComment(content.id, content);
             }}
           />
         </Container>

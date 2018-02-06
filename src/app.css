@@ -1,7 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  background-color: #fafbfa;
+  background-color: #f7f7f7;
 }
 
 button {
@@ -21,6 +21,23 @@ a {
   margin-bottom: 60px;
 }
 
+.footer {
+  margin: 100px 0 50px;
+}
+
+#readable-logo.header img {
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+h2#readable-logo {
+  text-align: center;
+}
+
+#readable-logo.header img:hover {
+  transform: translateY(-3px);
+}
+
 .sorting-dropdown {
   margin-left: 25px;
   color: #767676;
@@ -38,7 +55,7 @@ a {
   padding-bottom: 20px;
   padding-right: 20px;
   color: #767676;
-  font-size: 15px;
+  font-size: 14.5px;
 }
 
 #post-tag {
@@ -50,12 +67,14 @@ a {
   margin-top: 38px;
 }
 
+.submit-button .button,
 .category-button.button,
 .delete-post-button.button,
 .add-post-button.button,
 .edit-post-button.button {
   font-weight: 300;
-  background-color: #ededed;
+  background-color: #fff;
+  border: 1px solid #dededf;
   transition: all 0.3s ease-out;
 }
 
@@ -63,10 +82,13 @@ a {
   font-weight: 400;
 }
 
+.add-post-button.button:hover,
+.add-post-button.button:focus,
 .category-button.button:hover,
 .category-button.button:focus {
   color: #fff;
   background-color: #1d9efc;
+  border: 1px solid #fafbfa;
 }
 
 .author-name,
@@ -82,13 +104,14 @@ a {
 .delete-post-button.button:hover {
   color: #fff;
   background-color: #f06220;
+  border: 1px solid #fff;
 }
 
 .submit-button .button:hover,
-.add-post-button.button:hover,
 .edit-post-button.button:hover {
   color: #fff;
   background-color: #1d9efc;
+  border: 1px solid #fff;
 }
 
 #post-icon.icon {
@@ -103,4 +126,32 @@ a {
 .footer-text,
 .footer-icon {
   color: #767676;
+}
+
+#content-not-found-page.statistic i {
+  color: #767676;
+}
+
+#content-not-found-page .content-not-found-text,
+#content-not-found-page .label {
+  margin-bottom: 20px;
+  color: #767676;
+}
+
+.sorting-comment-dropdown {
+  margin-top: 40px;
+}
+
+.comment-timestamp.metadata div {
+  font-weight: 400;
+  font-size: 11px;
+}
+
+#comment-content {
+  margin-top: 10px;
+}
+
+.menu.transition .text {
+  font-weight: 300;
+  font-size: 14px;
 }

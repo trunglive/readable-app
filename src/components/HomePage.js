@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Button, Icon } from 'semantic-ui-react';
 import AllPosts from './AllPosts';
 import SortingDropdown from './SortingDropdown';
 
-const HomePage = () => (
-  <Grid centered>
-    <Grid.Column width={8}>
+const HomePage = props => (
+  <Grid centered columns={2} stackable relaxed>
+    <Grid.Column>
       <Container textAlign="right">
         <Link to="/createpost">
           <Button className="add-post-button" size="small">
@@ -14,11 +15,15 @@ const HomePage = () => (
             Add Post
           </Button>
         </Link>
-        <SortingDropdown />
+        {props.posts.length > 0 ? <SortingDropdown /> : null}
       </Container>
       <AllPosts />
     </Grid.Column>
   </Grid>
 );
 
-export default HomePage;
+const mapStateToProps = ({ posts }) => ({
+  posts
+});
+
+export default connect(mapStateToProps)(HomePage);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import NotFoundPage from '../components/NotFoundPage';
 import {
   Grid,
   Container,
@@ -31,9 +32,10 @@ class SinglePostContent extends Component {
   handleClose = () => this.setState({ modalOpen: false });
 
   handleDeleteComments = () => {
-    this.props.commentsId.map(commentId => {
-      return this.props.dispatch(fetchDeleteComment(commentId));
-    });
+    this.props.commentsId &&
+      this.props.commentsId.map(commentId => {
+        return this.props.dispatch(fetchDeleteComment(commentId));
+      });
   };
 
   handleVoting = () => {
@@ -55,15 +57,14 @@ class SinglePostContent extends Component {
       category,
       voteScore,
       commentCount,
+      commentCounting,
       goToHomepage
     } = this.props;
 
     return (
       <div className="post">
         {!id ? (
-          <p style={{ textAlign: 'center' }}>
-            This page doesn't exist <Icon name="frown" size="large" />
-          </p>
+          <NotFoundPage />
         ) : (
           <Segment padded className="post-container">
             <Link to={`/topic/${category}`}>
@@ -150,7 +151,7 @@ class SinglePostContent extends Component {
                     onClick={() => {
                       dispatch(fetchDeletePost(id));
                       this.handleDeleteComments();
-                      goToHomepage('/');
+                      typeof goToHomepage == 'function' && goToHomepage('/');
                     }}
                     inverted
                   >
@@ -173,14 +174,14 @@ class SinglePostContent extends Component {
 }
 
 SinglePostContent.propTypes = {
-  id: PropTypes.string.isRequired,
-  timestamp: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  voteScore: PropTypes.number.isRequired,
-  commentCount: PropTypes.number.isRequired
+  id: PropTypes.string,
+  timestamp: PropTypes.number,
+  title: PropTypes.string,
+  body: PropTypes.string,
+  author: PropTypes.string,
+  category: PropTypes.string,
+  voteScore: PropTypes.number,
+  commentCount: PropTypes.number
 };
 
 export default connect()(SinglePostContent);

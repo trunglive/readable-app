@@ -18,17 +18,13 @@ class AllCategories extends Component {
 
     return (
       <div>
-        <Container textAlign="center">
-          <ul>
-            <Link to="/">
-              <Button className="category-button">All</Button>
-            </Link>
-            {categories.length > 0 &&
-              categories.map(category => (
-                <SingleCategoryContent key={category.path} {...category} />
-              ))}
-          </ul>
-        </Container>
+        <Link to="/">
+          <Button className="category-button">All</Button>
+        </Link>
+        {categories.length > 0 &&
+          categories.map(category => (
+            <SingleCategoryContent key={category.path} {...category} />
+          ))}
       </div>
     );
   }
@@ -40,6 +36,6 @@ const mapStateToProps = ({ categories }) => ({
 
 AllCategories.propTypes = {
   categories: PropTypes.array.isRequired
-}
+};
 
 export default connect(mapStateToProps, { fetchAllCategories })(AllCategories);

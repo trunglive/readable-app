@@ -87,7 +87,7 @@ export const voteComment = (commentId, option) =>
   }).then(response => response.json());
 
 export const editComment = (commentId, comment) =>
-  fetch(`${api}/comments/{commentId}`, {
+  fetch(`${api}/comments/${commentId}`, {
     method: 'PUT',
     headers,
     body: JSON.stringify(comment)

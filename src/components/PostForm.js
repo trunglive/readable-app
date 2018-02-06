@@ -112,7 +112,9 @@ class PostForm extends Component {
                 onChange={this.onBodyChange}
               />
 
-              <Form.Button className="submit-button">Submit</Form.Button>
+              <Form.Button className="submit-button">
+                {this.props.postInfo ? 'Edit Post' : 'Add Post'}
+              </Form.Button>
             </Form>
           </Grid.Column>
         </Grid>

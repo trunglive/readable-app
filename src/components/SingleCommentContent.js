@@ -7,6 +7,8 @@ import {
   fetchDeleteComment,
   fetchVoteComment
 } from '../actions/commentsActions';
+import { fetchPost } from '../actions/postsActions';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 
 const SingleCommentContent = ({
@@ -16,6 +18,7 @@ const SingleCommentContent = ({
   body,
   author,
   voteScore,
+  timestamp,
   singlePostUrl
 }) => {
   return (
@@ -26,8 +29,13 @@ const SingleCommentContent = ({
           src="https://image.flaticon.com/icons/svg/145/145849.svg"
         />
         <Comment.Content>
-          <Comment.Author>{author}</Comment.Author>
-          <Comment.Text>{body}</Comment.Text>
+          <Comment.Author>
+            {author}
+            <Comment.Metadata className='comment-timestamp'>
+              <div>{moment(timestamp).format('lll')}</div>
+            </Comment.Metadata>
+          </Comment.Author>
+          <Comment.Text id="comment-content">{body}</Comment.Text>
           <Comment.Actions>
             <Comment.Action>
               <Comment.Metadata>
@@ -52,13 +60,18 @@ const SingleCommentContent = ({
                 </div>
               </Comment.Metadata>
             </Comment.Action>
-            <Link to={{
-              pathname: `/editcomment/${id}`,
-              state: { post: {singlePostUrl} }
-            }}>Edit</Link>
+            <Link
+              to={{
+                pathname: `/editcomment/${id}`,
+                state: { post: { singlePostUrl } }
+              }}
+            >
+              Edit
+            </Link>
             <Comment.Action
               onClick={() => {
                 dispatch(fetchDeleteComment(id));
+                dispatch(fetchPost(parentId));
               }}
             >
               Delete
@@ -76,6 +89,6 @@ SingleCommentContent.propTypes = {
   body: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   voteScore: PropTypes.number.isRequired
-}
+};
 
 export default connect()(SingleCommentContent);

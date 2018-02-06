@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Icon } from 'semantic-ui-react';
 
 const Footer = () => (
-  <div className="navigation">
+  <div className="footer">
     <Container textAlign="center">
       <span>
         <strong className="footer-text">Made by </strong>
@@ -12,7 +12,7 @@ const Footer = () => (
         className="footer-icon"
         target="_blank"
       >
-        <strong>Trung Vo</strong>
+        <strong>Trung Vo </strong>
         <Icon name="github" size="big" />
       </a>
     </Container>

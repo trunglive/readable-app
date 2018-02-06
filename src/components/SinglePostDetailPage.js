@@ -9,6 +9,7 @@ import CreateCommentForm from './CreateCommentForm';
 import SortingDropdown from './SortingDropdown';
 import PostSelectors from '../selectors/PostSelectors';
 import PropTypes from 'prop-types';
+import NotFoundPage from './NotFoundPage';
 
 class SinglePostDetailPage extends Component {
   componentDidMount() {
@@ -17,38 +18,47 @@ class SinglePostDetailPage extends Component {
   }
 
   render() {
-    const { posts, comments } = this.props;
-    const singlePost = { ...posts[0] };
+    const { comments } = this.props;
     const commentsId = comments.map(comment => comment.id);
+    const post = this.props.posts.filter(
+      post => post.id === this.props.match.params.id
+    );
+    const singlePost = { ...post[0] };
 
     return (
       <div>
-        <Grid centered columns={2} stackable relaxed>
-          <Grid.Column>
-            <div>
-              <SinglePostContent
-                {...singlePost}
-                commentsId={commentsId}
-                goToHomepage={this.props.history.push}
-              />
-              <Container textAlign="right" className="sorting-comment-dropdown">
-                {comments.length > 0 && <SortingDropdown />}
-              </Container>
-            </div>
+        {Object.keys(singlePost).length > 0 ? (
+          <div>
+            <Grid centered columns={2} stackable relaxed>
+              <Grid.Column>
+                <div>
+                  <SinglePostContent
+                    {...singlePost}
+                    commentsId={commentsId}
+                    goToHomepage={this.props.history.push}
+                  />
+                  <Container
+                    textAlign="right"
+                    className="sorting-comment-dropdown"
+                  >
+                    {comments.length > 0 && <SortingDropdown />}
+                  </Container>
+                </div>
 
-            {comments.length > 0 &&
-              comments.map(comment => (
-                <SingleCommentContent
-                  key={comment.id}
-                  {...comment}
-                  singlePostUrl={this.props.match.url}
-                />
-              ))}
-          </Grid.Column>
-        </Grid>
-
-        {Object.keys(singlePost).length > 0 && (
-          <CreateCommentForm parentId={this.props.match.params.id} />
+                {comments.length > 0 &&
+                  comments.map(comment => (
+                    <SingleCommentContent
+                      key={comment.id}
+                      {...comment}
+                      singlePostUrl={this.props.match.url}
+                    />
+                  ))}
+              </Grid.Column>
+            </Grid>
+            <CreateCommentForm parentId={this.props.match.params.id} />
+          </div>
+        ) : (
+          <NotFoundPage />
         )}
       </div>
     );

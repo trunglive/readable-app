@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Form, Button, Container } from 'semantic-ui-react';
-import { fetchAllComments } from '../actions/commentsActions';
+import { Grid, Container } from 'semantic-ui-react';
 import { fetchAllPosts } from '../actions/postsActions';
+import { fetchAllComments } from '../actions/commentsActions';
 import SinglePostContent from './SinglePostContent';
 import SingleCommentContent from './SingleCommentContent';
 import CreateCommentForm from './CreateCommentForm';
 import SortingDropdown from './SortingDropdown';
+import NotFoundPage from './NotFoundPage';
 import PostSelectors from '../selectors/PostSelectors';
 import PropTypes from 'prop-types';
-import NotFoundPage from './NotFoundPage';
 
 class SinglePostDetailPage extends Component {
   componentDidMount() {

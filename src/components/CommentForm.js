@@ -53,7 +53,6 @@ class CommentForm extends Component {
   };
 
   render() {
-    console.log(this.state.timestamp);
     return (
       <Grid columns={2} celled="internally" centered stackable>
         <Grid.Column className="comment-form">

@@ -12,7 +12,6 @@ class CommentForm extends Component {
       parentId: props.commentInfo
         ? props.commentInfo.parentId
         : props.parentPostId,
-      timestamp: moment().valueOf(),
       author: props.commentInfo ? props.commentInfo.author : '',
       body: props.commentInfo ? props.commentInfo.body : '',
       voteScore: props.commentInfo ? props.commentInfo.voteScore : 0,
@@ -38,7 +37,7 @@ class CommentForm extends Component {
       this.props.onSubmit({
         id: this.state.id,
         parentId: this.state.parentId,
-        timestamp: this.state.timestamp,
+        timestamp: moment().valueOf(),
         author: this.state.author,
         body: this.state.body,
         voteScore: this.state.voteScore,
@@ -54,6 +53,7 @@ class CommentForm extends Component {
   };
 
   render() {
+    console.log(this.state.timestamp);
     return (
       <Grid columns={2} celled="internally" centered stackable>
         <Grid.Column className="comment-form">

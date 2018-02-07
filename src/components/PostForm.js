@@ -11,7 +11,6 @@ class PostForm extends Component {
     this.state = {
       id: props.postInfo ? props.postInfo.id : uuid(),
       category: props.postInfo ? props.postInfo.category : 'react',
-      timestamp: moment().valueOf(),
       title: props.postInfo ? props.postInfo.title : '',
       author: props.postInfo ? props.postInfo.author : '',
       body: props.postInfo ? props.postInfo.body : '',
@@ -48,7 +47,7 @@ class PostForm extends Component {
     } else {
       this.props.onSubmit({
         id: this.state.id,
-        timestamp: this.state.timestamp,
+        timestamp: moment().valueOf(),
         title: this.state.title,
         body: this.state.body,
         author: this.state.author,

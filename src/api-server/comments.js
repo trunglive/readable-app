@@ -8,8 +8,8 @@ const defaultData = {
     id: '894tuq4ut84ut8v4t8wun89g',
     parentId: "8xf0y6ziyjabvozdd253nd",
     timestamp: 1468166872634,
-    body: 'Hi there! I am a COMMENT.',
-    author: 'thingtwo',
+    body: 'That is a fantastic idea!',
+    author: 'Trung',
     voteScore: 6,
     deleted: false,
     parentDeleted: false
@@ -18,8 +18,8 @@ const defaultData = {
     id: '8tu4bsun805n8un48ve89',
     parentId: "8xf0y6ziyjabvozdd253nd",
     timestamp: 1469479767190,
-    body: 'Comments. Are. Cool.',
-    author: 'thingone',
+    body: 'I prefer Vue JS because of its easy learning curve',
+    author: 'Andrew',
     voteScore: -5,
     deleted: false,
     parentDeleted: false

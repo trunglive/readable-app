@@ -8,6 +8,9 @@
 
 This project was built with React, Redux and Semantic UI. The application state (create, read, update, delete, vote, sort posts/comments) is controlled by Redux store. There is no user authentication in this app. Users can be able to edit/delete any posts/comments.
 
+## Demo
+![screenshot][screenshot.png]
+
 ## Stack
 - [React](https://github.com/facebook/react)
 - [Redux](https://github.com/reactjs/redux)

@@ -14,7 +14,6 @@ class AllPosts extends Component {
 
   render() {
     const { posts } = this.props;
-
     return (
       <div>
         {!posts.length && (

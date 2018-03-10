@@ -11,11 +11,8 @@ class AllCategories extends Component {
     this.props.fetchAllCategories();
   }
 
-  // handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
   render() {
     const { categories } = this.props;
-
     return (
       <div>
         <Link to="/">

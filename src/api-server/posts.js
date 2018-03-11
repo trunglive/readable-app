@@ -28,8 +28,8 @@ const defaultData = {
   "9c85dea2cde87682c179": {
     id: '9c85dea2cde87682c179',
     timestamp: 1492380534238,
-    title: 'Udacity Nanodegree',
-    body: 'Learn the skills you need to get the jobs you want',
+    title: 'About Udacity',
+    body: 'Udacity students are a community of global learners united in a shared goal of uplift and transformation.',
     author: 'Udacity',
     category: 'udacity',
     voteScore: 3,

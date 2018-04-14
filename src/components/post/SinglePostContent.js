@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import NotFoundPage from '../components/NotFoundPage';
+import NotFoundPage from '../not-found/NotFoundPage';
 import {
   fetchAllPosts,
   fetchPost,
   fetchDeletePost,
   fetchVotePost
-} from '../actions/postsActions';
-import { fetchDeleteComment } from '../actions/commentsActions';
+} from '../../actions/postsActions';
+import { fetchDeleteComment } from '../../actions/commentsActions';
 import {
   Container,
   Feed,

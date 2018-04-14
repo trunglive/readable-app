@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/header/Navigation';
 import HomePage from '../components/HomePage';
-import CreatePostPage from '../components/CreatePostPage';
-import EditPostPage from '../components/EditPostPage';
-import EditCommentPage from '../components/EditCommentPage';
-import PostsByCategories from '../components/PostsByCategories';
-import SinglePostDetailPage from '../components/SinglePostDetailPage';
-import NotFoundPage from '../components/NotFoundPage';
-import Footer from '../components/Footer';
+import CreatePostPage from '../components/post/CreatePostPage';
+import EditPostPage from '../components/post/EditPostPage';
+import EditCommentPage from '../components/comment/EditCommentPage';
+import PostsByCategories from '../components/post/PostsByCategories';
+import SinglePostDetailPage from '../components/post/SinglePostDetailPage';
+import NotFoundPage from '../components/not-found/NotFoundPage';
+import Footer from '../components/footer/Footer';
 
 const AppRouter = () => (
   <Router>

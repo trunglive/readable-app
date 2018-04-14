@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentForm from './CommentForm';
-import { fetchAddComment } from '../actions/commentsActions';
-import { fetchPost } from '../actions/postsActions';
+import { fetchAddComment } from '../../actions/commentsActions';
+import { fetchPost } from '../../actions/postsActions';
 import PropTypes from 'prop-types';
 
 const CreateCommentForm = props => {

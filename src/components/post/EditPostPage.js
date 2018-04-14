@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PostForm from './PostForm';
-import NotFoundPage from './NotFoundPage';
-import { fetchEditPost } from '../actions/postsActions';
+import NotFoundPage from '../not-found/NotFoundPage';
+import { fetchEditPost } from '../../actions/postsActions';
 import PropTypes from 'prop-types';
 
 class EditPostPage extends Component {

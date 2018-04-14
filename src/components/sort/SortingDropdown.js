@@ -6,8 +6,8 @@ import {
   sortByOldestPost,
   sortByHighestVoteScore,
   sortByLowestVoteScore
-} from '../actions/sortingActions';
-import { fetchAllPosts } from '../actions/postsActions';
+} from '../../actions/sortingActions';
+import { fetchAllPosts } from '../../actions/postsActions';
 
 const trigger = (
   <span>

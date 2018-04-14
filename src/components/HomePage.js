@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AllPosts from './AllPosts';
-import SortingDropdown from './SortingDropdown';
+import AllPosts from './post/AllPosts';
+import SortingDropdown from './sort/SortingDropdown';
 import { Container, Grid, Button, Icon } from 'semantic-ui-react';
 
 const HomePage = props => (

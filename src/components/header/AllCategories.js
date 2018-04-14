@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import SingleCategoryContent from './SingleCategoryContent';
-import { fetchAllCategories } from '../actions/categoriesActions';
+import SingleCategoryContent from '../post/SingleCategoryContent';
+import { fetchAllCategories } from '../../actions/categoriesActions';
 import PropTypes from 'prop-types';
 
 class AllCategories extends Component {

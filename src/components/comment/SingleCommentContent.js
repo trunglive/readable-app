@@ -6,8 +6,8 @@ import {
   fetchAllComments,
   fetchDeleteComment,
   fetchVoteComment
-} from '../actions/commentsActions';
-import { fetchPost } from '../actions/postsActions';
+} from '../../actions/commentsActions';
+import { fetchPost } from '../../actions/postsActions';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 

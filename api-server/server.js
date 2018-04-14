@@ -8,7 +8,9 @@ const categories = require('./categories')
 const posts = require('./posts')
 const comments = require('./comments')
 const publicPath = path.join(__dirname, '..', 'public');
-const port = process.env.PORT || 5000;
+const path = require('path');
+
+// const port = process.env.PORT || 5000;
 
 const app = express();
 
@@ -322,10 +324,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-app.listen(port, () => {
-  console.log('Server is ready!');
-});
+// app.listen(port, () => {
+//   console.log('Server is ready!');
+// });
 
-// app.listen(config.port, () => {
-//   console.log('Server listening on port %s, Ctrl+C to stop', config.port)
-// })
+app.listen(config.port, () => {
+  console.log('Server listening on port %s, Ctrl+C to stop', config.port)
+})

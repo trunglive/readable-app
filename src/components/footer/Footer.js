@@ -4,16 +4,12 @@ import { Container, Icon } from "semantic-ui-react";
 const Footer = () => (
   <div className="footer">
     <Container textAlign="center">
-      <span>
-        <strong className="footer-text">Code by </strong>
-      </span>
       <a
         href="https://github.com/trunglive/readable"
         className="footer-icon"
         target="_blank"
       >
-        <strong>Trung Vo</strong>
-        <Icon name="github" size="big" />
+        <p className="footer-text">Code by Trung Vo </p>
       </a>
     </Container>
   </div>

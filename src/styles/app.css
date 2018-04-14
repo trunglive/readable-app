@@ -49,13 +49,14 @@ h2#readable-logo {
 
 .post {
   margin-top: 60px;
+  letter-spacing: 0.5px;
 }
 
 #post-content {
-  padding-bottom: 20px;
-  padding-right: 20px;
+  padding: 10px 20px 20px 0;
   color: #767676;
   font-size: 14.5px;
+  line-height: 1.8;
 }
 
 #post-tag {
@@ -97,8 +98,13 @@ h2#readable-logo {
   color: #1d9efc;
 }
 
+.summary {
+  line-height: 1.8;
+}
+
 #post-timestamp.date {
   font-size: 11px;
+  padding-left: 10px;
 }
 
 .delete-post-button.button:hover {
@@ -116,10 +122,15 @@ h2#readable-logo {
 
 #post-icon.icon {
   font-size: 15px;
+  margin: 0 10px;
 }
 
 #post-icon.icon:hover {
   color: #1d9efc;
+}
+
+#feed {
+  margin-bottom: 25px;
 }
 
 .author-added,

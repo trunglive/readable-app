@@ -16,8 +16,7 @@ import {
   Header,
   Modal,
   Button,
-  Segment,
-  Label
+  Segment
 } from 'semantic-ui-react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
@@ -66,12 +65,7 @@ class SinglePostContent extends Component {
           <NotFoundPage />
         ) : (
           <Segment padded className="post-container">
-            <Link to={`/${category}`}>
-              <Label tag color="orange" attached="top right" id="post-tag">
-                {category}
-              </Label>
-            </Link>
-            <Feed size="large">
+            <Feed size="large" id="feed">
               <Feed.Event>
                 <Feed.Label image="https://image.flaticon.com/icons/svg/145/145849.svg" />
                 <Feed.Content>

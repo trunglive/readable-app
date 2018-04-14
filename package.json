@@ -8,7 +8,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev": "webpack-dev-server --open",
-    "start": "node src/api-server/server.js",
+    "start": "node api-server/server.js",
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {

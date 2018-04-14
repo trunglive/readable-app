@@ -10,7 +10,7 @@ This project was built with React, Redux and Semantic UI. The application state 
 
 ## Demo
 
-![screenshot](screenshot.png)
+![screenshot](readable-demo.png)
 
 ## Stack
 

@@ -14,7 +14,7 @@ const publicPath = path.join(__dirname, '..', 'public');
 
 const app = express();
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.use(cors());
 

@@ -7,8 +7,8 @@ const config = require('./config')
 const categories = require('./categories')
 const posts = require('./posts')
 const comments = require('./comments')
-// const path = require('path')
-// const publicPath = path.join(__dirname, '..', 'public');
+const path = require('path')
+const publicPath = path.join(__dirname, '..', 'public');
 
 // const port = process.env.PORT || 5000;
 
@@ -318,11 +318,11 @@ app.delete('/comments/:id', (req, res) => {
     )
 })
 
-// app.use(express.static(publicPath));
+app.use(express.static(publicPath));
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(publicPath, 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 // app.listen(port, () => {
 //   console.log('Server is ready!');

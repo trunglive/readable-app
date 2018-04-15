@@ -10,6 +10,8 @@ This project was built with React, Redux and Semantic UI. The application state 
 
 ## Demo
 
+https://readable-rnd.herokuapp.com
+
 ![screenshot](readable-demo.png)
 
 ## Stack

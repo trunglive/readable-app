@@ -25,6 +25,10 @@ a {
   margin: 100px 0 50px;
 }
 
+.footer-text {
+  margin-bottom: 20px;
+}
+
 #readable-logo.header img {
   margin-bottom: 20px;
   transition: transform 0.2s ease-in-out;

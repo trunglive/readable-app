@@ -1,4 +1,4 @@
-const api = process.env.PORT || 'http://localhost:3001';
+const api = "https://readable-nd-apis.herokuapp.com/" || 'http://localhost:3001';
 
 // Generate a unique token for storing data of Readable on the backend server
 let token = localStorage.token;

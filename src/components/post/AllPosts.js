@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PostSelectors from '../../selectors/PostSelectors';
 import SinglePostContent from './SinglePostContent';
 import NoPostAlert from '../not-found/NoPostAlert';

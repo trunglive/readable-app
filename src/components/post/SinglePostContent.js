@@ -55,7 +55,6 @@ class SinglePostContent extends Component {
       category,
       voteScore,
       commentCount,
-      commentCounting,
       goToHomepage
     } = this.props;
 
@@ -138,7 +137,7 @@ class SinglePostContent extends Component {
                     onClick={() => {
                       dispatch(fetchDeletePost(id));
                       this.handleDeleteComments();
-                      typeof goToHomepage == 'function' && goToHomepage('/');
+                      typeof goToHomepage === 'function' && goToHomepage('/');
                     }}
                     inverted
                   >

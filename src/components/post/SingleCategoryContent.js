@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PostsByCategories from './PostsByCategories';
 import { fetchPostsByCategories } from '../../actions/postsActions';
 import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';

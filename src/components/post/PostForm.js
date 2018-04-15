@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Message, Form, Input, Grid } from 'semantic-ui-react';
 import uuid from 'uuid';
 import moment from 'moment';

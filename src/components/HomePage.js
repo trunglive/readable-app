@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import AllPosts from './post/AllPosts';
-import SortingDropdown from './sort/SortingDropdown';
-import { Container, Grid, Button, Icon } from 'semantic-ui-react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import AllPosts from "./post/AllPosts";
+import SortingDropdown from "./sort/SortingDropdown";
+import { Container, Grid, Button, Icon } from "semantic-ui-react";
 
-const HomePage = props => (
+const HomePage = ({ posts }) => (
   <Grid centered columns={2} stackable relaxed>
     <Grid.Column>
       <Container textAlign="right">
@@ -15,7 +15,7 @@ const HomePage = props => (
             Add Post
           </Button>
         </Link>
-        {props.posts.length > 0 ? <SortingDropdown /> : null}
+        {posts.length > 0 ? <SortingDropdown /> : null}
       </Container>
       <AllPosts />
     </Grid.Column>

@@ -25,8 +25,8 @@ a {
   margin: 100px 0 50px;
 }
 
-.footer-text {
-  margin-bottom: 20px;
+#footer-text {
+  margin-bottom: 60px;
 }
 
 #readable-logo.header img {
@@ -169,4 +169,9 @@ h2#readable-logo {
 .menu.transition .text {
   font-weight: 300;
   font-size: 14px;
+}
+
+.loading-icon {
+  display: block;
+  margin: 30px auto;
 }

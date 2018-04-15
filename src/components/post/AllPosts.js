@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PostSelectors from '../../selectors/PostSelectors';
-import SinglePostContent from './SinglePostContent';
-import NoPostAlert from '../not-found/NoPostAlert';
-import { fetchAllPosts } from '../../actions/postsActions';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PostSelectors from "../../selectors/PostSelectors";
+import SinglePostContent from "./SinglePostContent";
+import NoPostAlert from "../not-found/NoPostAlert";
+import { fetchAllPosts } from "../../actions/postsActions";
+import PropTypes from "prop-types";
 
 class AllPosts extends Component {
   componentDidMount() {
@@ -19,8 +19,11 @@ class AllPosts extends Component {
           <NoPostAlert mood="smile" message="Let's create a new post" />
         )}
 
-        {posts.length > 0 &&
-          posts.map(post => <SinglePostContent key={post.id} {...post} />)}
+        {posts.length > 0 ? (
+          posts.map(post => <SinglePostContent key={post.id} {...post} />)
+        ) : (
+          <img className="loading-icon" src="/icons/loading.svg" />
+        )}
       </div>
     );
   }

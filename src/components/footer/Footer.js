@@ -9,7 +9,7 @@ const Footer = () => (
         className="footer-icon"
         target="_blank"
       >
-        <p className="footer-text">Code by Trung Vo </p>
+        <p id="footer-text">Code by Trung Vo</p>
       </a>
     </Container>
   </div>
